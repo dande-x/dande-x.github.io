@@ -2,8 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>¸ßÑ¹¸ÖË¿±àÖ¯½º¹Ü__´óÁ¬¾ÞÁ¦Í¨ÒºÑ¹¹ÜÒµÓÐÏÞ¹«Ë¾</title>
+<title>é«˜åŽ‹é’¢ä¸ç¼–ç»‡èƒ¶ç®¡__å¤§è¿žå·¨åŠ›é€šæ¶²åŽ‹ç®¡ä¸šæœ‰é™å…¬å¸</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
@@ -54,12 +55,12 @@
 <script type="text/javascript" src="../js/jquery.min.js" ></script>
 <script type="text/javascript">
 $(function() {
-	var sWidth = $("#focus").width(); //»ñÈ¡½¹µãÍ¼µÄ¿í¶È£¨ÏÔÊ¾Ãæ»ý£©
-	var len = $("#focus ul li").length; //»ñÈ¡½¹µãÍ¼¸öÊý
+	var sWidth = $("#focus").width(); //èŽ·å–ç„¦ç‚¹å›¾çš„å®½åº¦ï¼ˆæ˜¾ç¤ºé¢ç§¯ï¼‰
+	var len = $("#focus ul li").length; //èŽ·å–ç„¦ç‚¹å›¾ä¸ªæ•°
 	var index = 0;
 	var picTimer;
 	
-	//ÒÔÏÂ´úÂëÌí¼ÓÊý×Ö°´Å¥ºÍ°´Å¥ºóµÄ°ëÍ¸Ã÷Ìõ£¬»¹ÓÐÉÏÒ»Ò³¡¢ÏÂÒ»Ò³Á½¸ö°´Å¥
+	//ä»¥ä¸‹ä»£ç æ·»åŠ æ•°å­—æŒ‰é’®å’ŒæŒ‰é’®åŽçš„åŠé€æ˜Žæ¡ï¼Œè¿˜æœ‰ä¸Šä¸€é¡µã€ä¸‹ä¸€é¡µä¸¤ä¸ªæŒ‰é’®
 	var btn = "<div class='btnBg'></div><div class='btn'>";
 	for(var i=0; i < len; i++) {
 		btn += "<span></span>";
@@ -68,37 +69,37 @@ $(function() {
 	$("#focus").append(btn);
 	$("#focus .btnBg").css("opacity",0.5);
 
-	//ÎªÐ¡°´Å¥Ìí¼ÓÊó±ê»¬ÈëÊÂ¼þ£¬ÒÔÏÔÊ¾ÏàÓ¦µÄÄÚÈÝ
+	//ä¸ºå°æŒ‰é’®æ·»åŠ é¼ æ ‡æ»‘å…¥äº‹ä»¶ï¼Œä»¥æ˜¾ç¤ºç›¸åº”çš„å†…å®¹
 	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
 		index = $("#focus .btn span").index(this);
 		showPics(index);
 	}).eq(0).trigger("mouseenter");
 
-	//ÉÏÒ»Ò³¡¢ÏÂÒ»Ò³°´Å¥Í¸Ã÷¶È´¦Àí
+	//ä¸Šä¸€é¡µã€ä¸‹ä¸€é¡µæŒ‰é’®é€æ˜Žåº¦å¤„ç†
 	$("#focus .preNext").css("opacity",0.2).hover(function() {
 		$(this).stop(true,false).animate({"opacity":"0.5"},300);
 	},function() {
 		$(this).stop(true,false).animate({"opacity":"0.2"},300);
 	});
 
-	//ÉÏÒ»Ò³°´Å¥
+	//ä¸Šä¸€é¡µæŒ‰é’®
 	$("#focus .pre").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 
-	//ÏÂÒ»Ò³°´Å¥
+	//ä¸‹ä¸€é¡µæŒ‰é’®
 	$("#focus .next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
 
-	//±¾ÀýÎª×óÓÒ¹ö¶¯£¬¼´ËùÓÐliÔªËØ¶¼ÊÇÔÚÍ¬Ò»ÅÅÏò×ó¸¡¶¯£¬ËùÒÔÕâÀïÐèÒª¼ÆËã³öÍâÎ§ulÔªËØµÄ¿í¶È
+	//æœ¬ä¾‹ä¸ºå·¦å³æ»šåŠ¨ï¼Œå³æ‰€æœ‰liå…ƒç´ éƒ½æ˜¯åœ¨åŒä¸€æŽ’å‘å·¦æµ®åŠ¨ï¼Œæ‰€ä»¥è¿™é‡Œéœ€è¦è®¡ç®—å‡ºå¤–å›´ulå…ƒç´ çš„å®½åº¦
 	$("#focus ul").css("width",sWidth * (len));
 	
-	//Êó±ê»¬ÉÏ½¹µãÍ¼Ê±Í£Ö¹×Ô¶¯²¥·Å£¬»¬³öÊ±¿ªÊ¼×Ô¶¯²¥·Å
+	//é¼ æ ‡æ»‘ä¸Šç„¦ç‚¹å›¾æ—¶åœæ­¢è‡ªåŠ¨æ’­æ”¾ï¼Œæ»‘å‡ºæ—¶å¼€å§‹è‡ªåŠ¨æ’­æ”¾
 	$("#focus").hover(function() {
 		clearInterval(picTimer);
 	},function() {
@@ -106,15 +107,15 @@ $(function() {
 			showPics(index);
 			index++;
 			if(index == len) {index = 0;}
-		},4000); //´Ë4000´ú±í×Ô¶¯²¥·ÅµÄ¼ä¸ô£¬µ¥Î»£ººÁÃë
+		},4000); //æ­¤4000ä»£è¡¨è‡ªåŠ¨æ’­æ”¾çš„é—´éš”ï¼Œå•ä½ï¼šæ¯«ç§’
 	}).trigger("mouseleave");
 	
-	//ÏÔÊ¾Í¼Æ¬º¯Êý£¬¸ù¾Ý½ÓÊÕµÄindexÖµÏÔÊ¾ÏàÓ¦µÄÄÚÈÝ
-	function showPics(index) { //ÆÕÍ¨ÇÐ»»
-		var nowLeft = -index*sWidth; //¸ù¾ÝindexÖµ¼ÆËãulÔªËØµÄleftÖµ
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //Í¨¹ýanimate()µ÷ÕûulÔªËØ¹ö¶¯µ½¼ÆËã³öµÄposition
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Îªµ±Ç°µÄ°´Å¥ÇÐ»»µ½Ñ¡ÖÐµÄÐ§¹û
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //Îªµ±Ç°µÄ°´Å¥ÇÐ»»µ½Ñ¡ÖÐµÄÐ§¹û
+	//æ˜¾ç¤ºå›¾ç‰‡å‡½æ•°ï¼Œæ ¹æ®æŽ¥æ”¶çš„indexå€¼æ˜¾ç¤ºç›¸åº”çš„å†…å®¹
+	function showPics(index) { //æ™®é€šåˆ‡æ¢
+		var nowLeft = -index*sWidth; //æ ¹æ®indexå€¼è®¡ç®—ulå…ƒç´ çš„leftå€¼
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //é€šè¿‡animate()è°ƒæ•´ulå…ƒç´ æ»šåŠ¨åˆ°è®¡ç®—å‡ºçš„position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //ä¸ºå½“å‰çš„æŒ‰é’®åˆ‡æ¢åˆ°é€‰ä¸­çš„æ•ˆæžœ
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //ä¸ºå½“å‰çš„æŒ‰é’®åˆ‡æ¢åˆ°é€‰ä¸­çš„æ•ˆæžœ
 	}
 });
 
@@ -140,13 +141,13 @@ $(function() {
 </div>
 <div class="nav">
 <ul>
-<li><a href="../index.htm" target="_self">ÍøÕ¾Ê×Ò³</a></li>
+<li><a href="../index.htm" target="_self">ç½‘ç«™é¦–é¡µ</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../about.htm" target="_self">¹«Ë¾ÐÅÏ¢</a></li>
+<li><a href="../about.htm" target="_self">å…¬å¸ä¿¡æ¯</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../honor.htm" target="_self">ÈÙÓþ×ÊÖÊ</a></li>
+<li><a href="../honor.htm" target="_self">è£èª‰èµ„è´¨</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../products.htm" target="_self">²úÆ·Õ¹Ê¾</a></li>
+<li><a href="../products.htm" target="_self">äº§å“å±•ç¤º</a></li>
 <li><span>&nbsp;</span></li>
 </ul>
 </div>
@@ -163,31 +164,31 @@ $(function() {
   <div class="bodyer1">
   <div class="lefter">
 <ul>
-<li><a href="../products/product1.htm"  title="²»Ðâ¸Ö½ðÊôÈí¹Ü">²»Ðâ¸Ö½ðÊôÈí¹Ü</a></li>
-<li><a href="../products/product2.htm"  title="îø×°¸ôÈÈ½º¹Ü×Ü³É">îø×°¸ôÈÈ½º¹Ü×Ü³É</a></li>
-<li><a href="../products/product3.htm"  title="³¬¸ßÑ¹¸ÖË¿²øÈÆ½º¹Ü">³¬¸ßÑ¹¸ÖË¿²øÈÆ½º¹Ü</a></li>
-<li><a href="../products/product4.htm"  title="¸ßÑ¹¸ÖË¿±àÖ¯½º¹Ü">¸ßÑ¹¸ÖË¿±àÖ¯½º¹Ü</a></li>
-<li><a href="../products/product5.htm"  title="Ê¯ÓÍ¸ßÑ¹×êÌ½½º¹Ü">Ê¯ÓÍ¸ßÑ¹×êÌ½½º¹Ü</a></li>
-<li><a href="../products/product6.htm"  title="¼Ð²¼½º¹Ü">´ó¿Ú¾¶¸ÖË¿½º¹Ü</a></li>
-<li><a href="../products/product7.htm"  title="ÅçÉ°½º¹Ü">¼Ð²¼½º¹Ü</a></li>
-<li><a href="../products/product8.htm"  title="ÅçÉ°½º¹Ü">ÅçÉ°½º¹Ü</a></li>
-<li><a href="../products/product9.htm"  title="Ïð½ºÈí½ÓÍ·">Ïð½ºÈí½ÓÍ·</a></li>
+<li><a href="../products/product1.htm"  title="ä¸é”ˆé’¢é‡‘å±žè½¯ç®¡">ä¸é”ˆé’¢é‡‘å±žè½¯ç®¡</a></li>
+<li><a href="../products/product2.htm"  title="é“ è£…éš”çƒ­èƒ¶ç®¡æ€»æˆ">é“ è£…éš”çƒ­èƒ¶ç®¡æ€»æˆ</a></li>
+<li><a href="../products/product3.htm"  title="è¶…é«˜åŽ‹é’¢ä¸ç¼ ç»•èƒ¶ç®¡">è¶…é«˜åŽ‹é’¢ä¸ç¼ ç»•èƒ¶ç®¡</a></li>
+<li><a href="../products/product4.htm"  title="é«˜åŽ‹é’¢ä¸ç¼–ç»‡èƒ¶ç®¡">é«˜åŽ‹é’¢ä¸ç¼–ç»‡èƒ¶ç®¡</a></li>
+<li><a href="../products/product5.htm"  title="çŸ³æ²¹é«˜åŽ‹é’»æŽ¢èƒ¶ç®¡">çŸ³æ²¹é«˜åŽ‹é’»æŽ¢èƒ¶ç®¡</a></li>
+<li><a href="../products/product6.htm"  title="å¤¹å¸ƒèƒ¶ç®¡">å¤§å£å¾„é’¢ä¸èƒ¶ç®¡</a></li>
+<li><a href="../products/product7.htm"  title="å–·ç ‚èƒ¶ç®¡">å¤¹å¸ƒèƒ¶ç®¡</a></li>
+<li><a href="../products/product8.htm"  title="å–·ç ‚èƒ¶ç®¡">å–·ç ‚èƒ¶ç®¡</a></li>
+<li><a href="../products/product9.htm"  title="æ©¡èƒ¶è½¯æŽ¥å¤´">æ©¡èƒ¶è½¯æŽ¥å¤´</a></li>
 </ul>
 </div>
 <div class="righter">
 <div class="righter110">
 	
 <div class="comrighttitle">
-µ±Ç°Î»ÖÃ£º<span><a href="../products.htm" >²úÆ·ÖÐÐÄ </a> > <a  >¸ßÑ¹¸ÖË¿±àÖ¯½º¹Ü</a> </span>
+å½“å‰ä½ç½®ï¼š<span><a href="../products.htm" >äº§å“ä¸­å¿ƒ </a> > <a  >é«˜åŽ‹é’¢ä¸ç¼–ç»‡èƒ¶ç®¡</a> </span>
 </div>
  <div id="comrightcon">
 
 	  <table width="98%" border="0" align="center" cellpadding="5" cellspacing="0">
   <tr>
-    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">¸ßÑ¹¸ÖË¿±àÖ¯½º¹Ü</div></td>
+    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">é«˜åŽ‹é’¢ä¸ç¼–ç»‡èƒ¶ç®¡</div></td>
   </tr>
   <tr>
-    <td><div align="center">×÷Õß£ºadmin ·¢²¼ÈÕÆÚ£º2013-10-16 9:19:04µã»÷£º2088</div></td>
+    <td><div align="center">ä½œè€…ï¼šadmin å‘å¸ƒæ—¥æœŸï¼š2013-10-16 9:19:04ç‚¹å‡»ï¼š2088</div></td>
   </tr>
   <tr>
     <td>
@@ -195,10 +196,10 @@ $(function() {
 	<div style="font-size:14px; line-height:25px;"><TABLE border=0 cellSpacing=0 cellPadding=0 width="96%" align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 22px; FONT-SIZE: 14px; TEXT-DECORATION: none" class=unnamed3>¸ßÑ¹¸ÖË¿±àÖ¯½º¹Ü</TD></TR>
+<TD style="LINE-HEIGHT: 22px; FONT-SIZE: 14px; TEXT-DECORATION: none" class=unnamed3>é«˜åŽ‹é’¢ä¸ç¼–ç»‡èƒ¶ç®¡</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
-<P align=left><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>Ò»¡¢²úÆ·½á¹¹£º</SPAN><BR>¸ÖË¿±àÖ¯½º¹Ü½á¹¹ÊÇÓÉÄÍÒºÌåµÄºÏ³ÉÏð½ºÄÚ½º²ã¡¢ÖÐ½º²ã¡¢¢ñ»ò¢ò»ò¢ó²ã¸ÖË¿±àÖ¯ÔöÇ¿²ã¡¢¼°ÄÍÌìºòÐÔÄÜÓÅÁ¼µÄºÏ³ÉÏð½ºÍâ½º²ã×é³É¡£<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>¶þ¡¢²úÆ·ÓÃÍ¾£º</SPAN><BR>¸ÖË¿ÔöÇ¿ÒºÑ¹Ïð½ºÈí¹ÜÖ÷ÒªÓÃÓÚ¿ó¾®ÒºÑ¹Ö§¼Ü¡¢ÓÍÌï¿ª²É£¬ÊÊÒËÓÚ¹¤³Ì½¨Öþ¡¢ÆðÖØÔËÊä¡¢Ò±½ð¶ÍÑ¹¡¢¿óÉ½Éè±¸¡¢´¬²°¡¢×¢ËÜ»úÐµ¡¢Å©Òµ»úÐµ¡¢¸÷ÖÖ»ú´²ÒÔ¼°¸÷¹¤Òµ²¿ÃÅ»úÐµ»¯¡¢×Ô¶¯»¯ÒºÑ¹ÏµÍ³ÖÐÊäËÍ¾ßÓÐÒ»¶¨Ñ¹Á¦ºÍÎÂ¶ÈµÄÊ¯ÓÍ»ù£¨Èç¿óÎïÓÍ¡¢¿ÉÈÜÐÔÓÍ¡¢ÒºÑ¹ÓÍ¡¢È¼ÓÍ¡¢Èó»¬ÓÍ£©ÒºÌå¡¢Ë®»ùÒºÌå£¨ÈçÈé»¯Òº¡¢ÓÍË®Èé×ÇÒº¡¢Ë®£©¡¢ÆøÌåµÈºÍÒºÌå´«¶¯ÓÃ¡£<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR>×¢£º±¾±ê×¼²»ÊÊºÏ±ÍÂéÓÍ»ùºÍÖ¬»ùÒºÌå.<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>Èý¡¢¹¤×÷ÎÂ¶È£º</SPAN><BR>ÓÍÀà-40¡æ¡ª+100¡æ£¬¿ÕÆø-30¡æ¡ª+50 ¡æ£¬Ë®ÈéÒº+80¡æÒÔÏÂ£¬³¬³ö·¶Î§ÇëÑ¡ÓÃ±¾³§×¨ÓÃ²úÆ·¡£<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>ËÄ¡¢²úÆ·ÌØµã£º</SPAN><SPAN class=Apple-converted-space>&nbsp;</SPAN><BR>1.½º¹ÜÑ¡ÓÃÌØÖÖºÏ³ÉÏð½ºÅäºÏÖÆ³É£¬¾ßÓÐÓÅÁ¼µÄÄÍÓÍ¡¢ÄÍÈÈ¡¢ÄÍÀÏ»¯ÐÔÄÜ¡£ 2.½º¹Ü³ÐÑ¹Á¦¸ß£¬Âö³åÐÔÄÜÓÅÔ½¡£ 3.¹ÜÌå½áºÏ½ôÃÜ£¬Ê¹ÓÃÈáÈí£¬ÔÚÑ¹Á¦ÏÂ±äÐÎÐ¡¡£ 4.½º¹Ü¾ßÓÐÓÅÁ¼µÄÄÍÇúÈÆÐÔºÍÄÍÆ£ÀÍÐÔ¡£ 5.¸ÖË¿±àÖ¯½º¹Ü³¤¶È´ó£¬×î³¤¿ÉÁ¬´ï¼¸Ê®Ã×ÉõÖÁ°ÙÃ×ÒÔÉÏ¡£</P></TD></TR></TBODY></TABLE><BR>
+<P align=left><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>ä¸€ã€äº§å“ç»“æž„ï¼š</SPAN><BR>é’¢ä¸ç¼–ç»‡èƒ¶ç®¡ç»“æž„æ˜¯ç”±è€æ¶²ä½“çš„åˆæˆæ©¡èƒ¶å†…èƒ¶å±‚ã€ä¸­èƒ¶å±‚ã€â… æˆ–â…¡æˆ–â…¢å±‚é’¢ä¸ç¼–ç»‡å¢žå¼ºå±‚ã€åŠè€å¤©å€™æ€§èƒ½ä¼˜è‰¯çš„åˆæˆæ©¡èƒ¶å¤–èƒ¶å±‚ç»„æˆã€‚<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>äºŒã€äº§å“ç”¨é€”ï¼š</SPAN><BR>é’¢ä¸å¢žå¼ºæ¶²åŽ‹æ©¡èƒ¶è½¯ç®¡ä¸»è¦ç”¨äºŽçŸ¿äº•æ¶²åŽ‹æ”¯æž¶ã€æ²¹ç”°å¼€é‡‡ï¼Œé€‚å®œäºŽå·¥ç¨‹å»ºç­‘ã€èµ·é‡è¿è¾“ã€å†¶é‡‘é”»åŽ‹ã€çŸ¿å±±è®¾å¤‡ã€èˆ¹èˆ¶ã€æ³¨å¡‘æœºæ¢°ã€å†œä¸šæœºæ¢°ã€å„ç§æœºåºŠä»¥åŠå„å·¥ä¸šéƒ¨é—¨æœºæ¢°åŒ–ã€è‡ªåŠ¨åŒ–æ¶²åŽ‹ç³»ç»Ÿä¸­è¾“é€å…·æœ‰ä¸€å®šåŽ‹åŠ›å’Œæ¸©åº¦çš„çŸ³æ²¹åŸºï¼ˆå¦‚çŸ¿ç‰©æ²¹ã€å¯æº¶æ€§æ²¹ã€æ¶²åŽ‹æ²¹ã€ç‡ƒæ²¹ã€æ¶¦æ»‘æ²¹ï¼‰æ¶²ä½“ã€æ°´åŸºæ¶²ä½“ï¼ˆå¦‚ä¹³åŒ–æ¶²ã€æ²¹æ°´ä¹³æµŠæ¶²ã€æ°´ï¼‰ã€æ°”ä½“ç­‰å’Œæ¶²ä½“ä¼ åŠ¨ç”¨ã€‚<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR>æ³¨ï¼šæœ¬æ ‡å‡†ä¸é€‚åˆè“–éº»æ²¹åŸºå’Œè„‚åŸºæ¶²ä½“.<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>ä¸‰ã€å·¥ä½œæ¸©åº¦ï¼š</SPAN><BR>æ²¹ç±»-40â„ƒâ€”+100â„ƒï¼Œç©ºæ°”-30â„ƒâ€”+50 â„ƒï¼Œæ°´ä¹³æ¶²+80â„ƒä»¥ä¸‹ï¼Œè¶…å‡ºèŒƒå›´è¯·é€‰ç”¨æœ¬åŽ‚ä¸“ç”¨äº§å“ã€‚<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>å››ã€äº§å“ç‰¹ç‚¹ï¼š</SPAN><SPAN class=Apple-converted-space>&nbsp;</SPAN><BR>1.èƒ¶ç®¡é€‰ç”¨ç‰¹ç§åˆæˆæ©¡èƒ¶é…åˆåˆ¶æˆï¼Œå…·æœ‰ä¼˜è‰¯çš„è€æ²¹ã€è€çƒ­ã€è€è€åŒ–æ€§èƒ½ã€‚ 2.èƒ¶ç®¡æ‰¿åŽ‹åŠ›é«˜ï¼Œè„‰å†²æ€§èƒ½ä¼˜è¶Šã€‚ 3.ç®¡ä½“ç»“åˆç´§å¯†ï¼Œä½¿ç”¨æŸ”è½¯ï¼Œåœ¨åŽ‹åŠ›ä¸‹å˜å½¢å°ã€‚ 4.èƒ¶ç®¡å…·æœ‰ä¼˜è‰¯çš„è€æ›²ç»•æ€§å’Œè€ç–²åŠ³æ€§ã€‚ 5.é’¢ä¸ç¼–ç»‡èƒ¶ç®¡é•¿åº¦å¤§ï¼Œæœ€é•¿å¯è¿žè¾¾å‡ åç±³ç”šè‡³ç™¾ç±³ä»¥ä¸Šã€‚</P></TD></TR></TBODY></TABLE><BR>
 <TABLE style="TEXT-ALIGN: center" border=0 cellSpacing=2 cellPadding=3 width="100%" align=center>
 <TBODY>
 <TR>
@@ -207,23 +208,23 @@ $(function() {
 <TABLE border=0 cellSpacing=0 cellPadding=0 width="96%" align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>Îå¡¢¸ÖË¿±àÖ¯ÒºÑ¹½º¹Ü¼¼ÊõÐÔÄÜÖ¸±ê£º</TD></TR>
+<TD style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>äº”ã€é’¢ä¸ç¼–ç»‡æ¶²åŽ‹èƒ¶ç®¡æŠ€æœ¯æ€§èƒ½æŒ‡æ ‡ï¼š</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" align=middle>µ¥²ã¸ÖË¿±àÖ¯½º¹Ü¼¼Êõ²ÎÊý</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" align=middle>å•å±‚é’¢ä¸ç¼–ç»‡èƒ¶ç®¡æŠ€æœ¯å‚æ•°</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <TABLE border=0 cellSpacing=1 cellPadding=0 width="90%" bgColor=#000000 align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 align=middle>Èí¹Ü¹æ¸ñ</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 align=middle>ÄÚ¾¶</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 align=middle>¸ÖË¿²ãÖ±¾¶</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 align=middle>Íâ¾¶</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 colSpan=2 align=middle>¹¤×÷Ñ¹Á¦</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 colSpan=2 align=middle>ÊÔÑéÑ¹Á¦</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 colSpan=2 align=middle>±¬ÆÆÑ¹Á¦</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 width=36 align=middle>×îÐ¡ÍäÇú°ë¾¶</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 width=48 align=middle>²Î¿¼ÖØÁ¿</TD></TR>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 align=middle>è½¯ç®¡è§„æ ¼</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 align=middle>å†…å¾„</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 align=middle>é’¢ä¸å±‚ç›´å¾„</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 align=middle>å¤–å¾„</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 colSpan=2 align=middle>å·¥ä½œåŽ‹åŠ›</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 colSpan=2 align=middle>è¯•éªŒåŽ‹åŠ›</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 colSpan=2 align=middle>çˆ†ç ´åŽ‹åŠ›</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 width=36 align=middle>æœ€å°å¼¯æ›²åŠå¾„</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 rowSpan=2 width=48 align=middle>å‚è€ƒé‡é‡</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 align=middle>MPA</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#999999 align=middle>Psi</TD>
@@ -234,8 +235,8 @@ $(function() {
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-5-21</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>4.5-5.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>9.5¡À0.6</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>14¡À0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>9.5Â±0.6</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>14Â±0.8</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>21</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>3043</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>31.5</TD>
@@ -247,8 +248,8 @@ $(function() {
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-6-20</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>5.5-6.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>11.7¡À0.6</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>16¡À0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>11.7Â±0.6</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>16Â±0.8</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>20</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>2898</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>30</TD>
@@ -260,8 +261,8 @@ $(function() {
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-8-17.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>7.5-8.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>13.7¡À0.6</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>18¡À0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>13.7Â±0.6</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>18Â±0.8</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>17.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>2536</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>26.25</TD>
@@ -272,9 +273,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>0.41</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-10-16</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>10¡À0.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>15.7¡À0.6</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>20¡À0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>10Â±0.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>15.7Â±0.6</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>20Â±0.8</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>16</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>2318</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>24</TD>
@@ -285,9 +286,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>0.47</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-13-14</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>13¡À0.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>19.7¡À0.6</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>24¡À1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>13Â±0.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>19.7Â±0.6</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>24Â±1.0</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>14</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>2028</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>21</TD>
@@ -298,9 +299,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>0.70</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-16-12</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>16¡À0.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>22.7¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>27¡À1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>16Â±0.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>22.7Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>27Â±1.0</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>12</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1739</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>18</TD>
@@ -311,9 +312,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>0.84</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-19-10</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>19¡À0.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>25.7¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>30¡À1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>19Â±0.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>25.7Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>30Â±1.0</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>10</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1449</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>15</TD>
@@ -324,9 +325,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>0.95</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-22-9</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>22¡À0.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>28.7¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>33¡À1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>22Â±0.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>28.7Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>33Â±1.0</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>9</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1304</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>13.5</TD>
@@ -337,9 +338,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1.09</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-25-8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>25¡À0.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>32.2¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>37¡À1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>25Â±0.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>32.2Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>37Â±1.0</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>8</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1159</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>12</TD>
@@ -350,9 +351,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1.38</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-32-6</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>32¡À0.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>39.2¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>44¡À1.2</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>32Â±0.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>39.2Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>44Â±1.2</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>6</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>869</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>9</TD>
@@ -363,9 +364,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1.80</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-38-5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>38¡À0.7</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>45.2¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>50¡À1.2</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>38Â±0.7</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>45.2Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>50Â±1.2</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>725</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>7.5</TD>
@@ -376,9 +377,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1.92</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-51-4</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>51¡À1.0</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>58.2¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>63¡À1.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>51Â±1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>58.2Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>63Â±1.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>4</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>579</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>6</TD>
@@ -389,9 +390,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>2.20</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-64-2.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>64¡À1.0</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>71¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>75¡À1.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>64Â±1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>71Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>75Â±1.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>2.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>362</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>3.75</TD>
@@ -402,9 +403,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>2.60</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-76-1.5</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>76¡À1.0</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>84¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>88¡À1.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>76Â±1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>84Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>88Â±1.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>217</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>2.25</TD>
@@ -415,9 +416,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>3.10</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-89-1</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>89¡À1.0</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>99¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>103¡À1.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>89Â±1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>99Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>103Â±1.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>144.9</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1.5</TD>
@@ -428,9 +429,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>4.40</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1-102-1</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>102¡À1.0</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>111¡À0.8</TD>
-<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>115¡À1.5</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>102Â±1.0</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>111Â±0.8</TD>
+<TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>115Â±1.5</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>116</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1.2</TD>
@@ -440,21 +441,21 @@ $(function() {
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>1250</TD>
 <TD style="LINE-HEIGHT: 26px; BACKGROUND-ATTACHMENT: fixed; BACKGROUND-POSITION: 50% 50%; COLOR: rgb(65,64,64); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamed2 bgColor=#ffffff align=middle>6.00</TD></TR></TBODY></TABLE></TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" align=middle>Ë«²ã¸ÖË¿±àÖ¯½º¹Ü¼¼Êõ²ÎÊý</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" align=middle>åŒå±‚é’¢ä¸ç¼–ç»‡èƒ¶ç®¡æŠ€æœ¯å‚æ•°</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <TABLE border=0 cellSpacing=1 cellPadding=0 width="90%" bgColor=#000000 align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=52 align=middle>Èí¹Ü¹æ¸ñ</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=42 align=middle>ÄÚ¾¶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=70 align=middle>¸ÖË¿²ãÖ±¾¶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=49 align=middle>Íâ¾¶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>¹¤×÷Ñ¹Á¦Mpa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>ÊÔÑéÑ¹Á¦Mpa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>±¬ÆÆÑ¹Á¦Mpa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=78 align=middle>×îÐ¡ÍäÇú°ë¾¶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=57 align=middle>²Î¿¼ÖØÁ¿Kg/m</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=52 align=middle>è½¯ç®¡è§„æ ¼</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=42 align=middle>å†…å¾„mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=70 align=middle>é’¢ä¸å±‚ç›´å¾„mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=49 align=middle>å¤–å¾„mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>å·¥ä½œåŽ‹åŠ›Mpa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>è¯•éªŒåŽ‹åŠ›Mpa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>çˆ†ç ´åŽ‹åŠ›Mpa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=78 align=middle>æœ€å°å¼¯æ›²åŠå¾„mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=57 align=middle>å‚è€ƒé‡é‡Kg/m</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 width=26 align=middle>MPA</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 width=35 align=middle>Psi</TD>
@@ -464,9 +465,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 width=40 align=middle>Psi</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-5-60</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>11.2¡À0.6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>15¡À0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>11.2Â±0.6</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>15Â±0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>60</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8694</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>90</TD>
@@ -477,9 +478,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.40</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle></TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13.5¡À0.6</TD, , , >
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>18¡À0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13.5Â±0.6</TD, , , >
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>18Â±0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>60</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8694</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>90</TD>
@@ -490,9 +491,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.45</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-8-50</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>15.5¡À0.6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>20¡À0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>15.5Â±0.6</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>20Â±0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>50</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>7245</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>75</TD>
@@ -503,9 +504,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.62</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-10-40</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>17.5¡À0.6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>22¡À0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>17.5Â±0.6</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>22Â±0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>40</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5796</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>60</TD>
@@ -516,9 +517,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.71</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-10-53</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16.5¡À0.6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>24¡À0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16.5Â±0.6</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>24Â±0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>53</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>7680</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>79.5</TD>
@@ -529,9 +530,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.71</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-13-30</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>21.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>26¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>21.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>26Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>30</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4347</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>45</TD>
@@ -542,9 +543,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.93</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-16-21</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>29¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>29Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>21</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3043</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>31.5</TD>
@@ -555,9 +556,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.00</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-16-34</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>30¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>30Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>34</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4926</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51</TD>
@@ -568,9 +569,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.23</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-19-18</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>27.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>32¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>27.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>32Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>18</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2608</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>27</TD>
@@ -581,9 +582,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.23</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-19-34</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>27.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>32¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>27.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>32Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>34</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4926</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51</TD>
@@ -594,9 +595,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.38</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-22-16</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>30.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>35¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>30.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>35Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2318</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24</TD>
@@ -607,9 +608,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.54</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-25-14</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>34¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>39¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>34Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>39Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>14</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2029</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>21</TD>
@@ -620,9 +621,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.54</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-32-11</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>41¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>40¡À1.2</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>41Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>40Â±1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>11</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1594</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16.5</TD>
@@ -633,9 +634,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.82</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-38-10</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38¡À0.7</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>47¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>52¡À1.2</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38Â±0.7</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>47Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>52Â±1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1449</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>15</TD>
@@ -646,9 +647,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.44</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-51-8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>60¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>65¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>60Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff vAlign=top align=middle>65Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1159</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>12</TD>
@@ -659,9 +660,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.10</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-64-5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>74¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>79¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>74Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>79Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>725</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>7.5</TD>
@@ -672,9 +673,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.40</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-76-4</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>86¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>92¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>86Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>92Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>580</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6</TD>
@@ -685,9 +686,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4.10</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-89-3</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>99¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>106¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>99Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>106Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>507</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5.25</TD>
@@ -698,9 +699,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5.73</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-102-3</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>112¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>118¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>112Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>118Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>435</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4.5</TD>
@@ -711,9 +712,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6.16</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2-127-2</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>137¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>143¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>137Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>143Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>290</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3</TD>
@@ -723,21 +724,21 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1450</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>7.32</TD></TR></TBODY></TABLE></TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" align=middle>Èý²ã¸ÖË¿±àÖ¯½º¹Ü¼¼Êõ²ÎÊý</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" align=middle>ä¸‰å±‚é’¢ä¸ç¼–ç»‡èƒ¶ç®¡æŠ€æœ¯å‚æ•°</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <TABLE border=0 cellSpacing=1 cellPadding=0 width="90%" bgColor=#000000 align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=50 align=middle>Èí¹Ü¹æ¸ñ</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=46 align=middle>ÄÚ¾¶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=65 align=middle>¸ÖË¿²ãÖ±¾¶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=52 align=middle>Íâ¾¶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>¹¤×÷Ñ¹Á¦Mpa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>ÊÔÑéÑ¹Á¦Mpa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>±¬ÆÆÑ¹Á¦Mpa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=38 align=middle>×îÐ¡ÍäÇú°ë¾¶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=63 align=middle>²Î¿¼ÖØÁ¿Kg/m</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=50 align=middle>è½¯ç®¡è§„æ ¼</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=46 align=middle>å†…å¾„mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=65 align=middle>é’¢ä¸å±‚ç›´å¾„mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=52 align=middle>å¤–å¾„mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>å·¥ä½œåŽ‹åŠ›Mpa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>è¯•éªŒåŽ‹åŠ›Mpa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top colSpan=2 align=middle>çˆ†ç ´åŽ‹åŠ›Mpa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=38 align=middle>æœ€å°å¼¯æ›²åŠå¾„mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 vAlign=top rowSpan=2 width=63 align=middle>å‚è€ƒé‡é‡Kg/m</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 align=middle>MPA</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 width=32 align=middle>Psi</TD>
@@ -747,9 +748,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#999999 width=44 align=middle>Psi</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-5-72</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13.2¡À0.6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>17¡À0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13.2Â±0.6</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>17Â±0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>72</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10433</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>108</TD>
@@ -760,9 +761,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.50</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-6-68</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>15.0¡À0.6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>15.0Â±0.6</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>68</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>9853</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102</TD>
@@ -773,9 +774,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.56</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-8-54</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>17.5¡À0.6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>17.5Â±0.6</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>54</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>7825</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>81</TD>
@@ -786,9 +787,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.83</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-10-44</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19.5¡À0.6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19.5Â±0.6</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>44</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6376</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>66</TD>
@@ -799,9 +800,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.95</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-13-32</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>23.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>28¡À1.2</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>23.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>28Â±1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4637</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>48</TD>
@@ -812,9 +813,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.22</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-16-23</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>26.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>31¡À1.2</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>26.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>31Â±1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>23</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3333</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>34.5</TD>
@@ -825,9 +826,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.30</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-19-20</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>29.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>34¡À1.2</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>29.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>34Â±1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>20</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2898</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>30</TD>
@@ -838,9 +839,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.62</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-22-18</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32.5¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>31¡À1.2</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32.5Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>31Â±1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>18</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2608</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>27</TD>
@@ -851,9 +852,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.81</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-25-16</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>36.0¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>41¡À1.0</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>36.0Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>41Â±1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2318</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24</TD>
@@ -864,9 +865,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.99</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-32-13</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32¡À0.5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>43.0¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>48¡À1.2</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32Â±0.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>43.0Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>48Â±1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1884</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19.5</TD>
@@ -877,9 +878,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.46</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-38-12</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38¡À0.7</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>49.0¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>54¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38Â±0.7</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>49.0Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>54Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>12</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1789</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>18</TD>
@@ -890,9 +891,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.08</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-51-10</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>62.0¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>67¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>62.0Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>67Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1449</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>15</TD>
@@ -903,9 +904,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.80</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-64-6</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>75.0¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>80¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>75.0Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>80Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>895</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>9</TD>
@@ -916,9 +917,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4.30</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-76-5</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>88¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>92¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>88Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>92Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>725</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>7.5</TD>
@@ -929,9 +930,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5.10</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-89-4</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>101.0¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>107¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>101.0Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>107Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>580</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6</TD>
@@ -942,9 +943,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6.80</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-102-4</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>114.0¡À0.8</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>120¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>114.0Â±0.8</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>120Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>507</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5.25</TD>
@@ -955,9 +956,9 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>7.34</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3-127-3</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>139¡À1</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>145¡À1.5</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>139Â±1</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>145Â±1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>435</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4.5</TD>
@@ -967,7 +968,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1560</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8.45</TD></TR></TBODY></TABLE></TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">´ó¿Ú¾¶¦µ152¸ÖË¿±àÖ¯½º¹ÜÒÑÍ¶ÈëÉú²ú¡£</TD></TR></TBODY></TABLE></div>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">å¤§å£å¾„Î¦152é’¢ä¸ç¼–ç»‡èƒ¶ç®¡å·²æŠ•å…¥ç”Ÿäº§ã€‚</TD></TR></TBODY></TABLE></div>
 </td>
   </tr>
 
@@ -988,7 +989,7 @@ $(function() {
 }
 </style>
 <div class="bottom">
-ÁªÏµÈË£ºÕÅÏÈÉú¡¡ÊÖ»ú£º15241127123¡¡µç»°£º0411-86269515  µØÖ·£º´óÁ¬ÊÐÂÃË³¿ÚÇøÈý½§±¤½ÖµÀº«¼Ò´å</div>
+è”ç³»äººï¼šå¼ å…ˆç”Ÿã€€æ‰‹æœºï¼š15241127123ã€€ç”µè¯ï¼š0411-86269515  åœ°å€ï¼šå¤§è¿žå¸‚æ—…é¡ºå£åŒºä¸‰æ¶§å ¡è¡—é“éŸ©å®¶æ‘</div>
 </div>
 </div>
 </div>
