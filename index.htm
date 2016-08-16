@@ -1,11 +1,12 @@
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>��������ͨҺѹ��ҵ���޹�˾</title>
-<meta name="keywords" content="��ѹ����,��˿��֯����,���ƽ���,������,��ɰ��,��������,������,����Ʒ,�ܷ��" />
-<meta name="description" content="����ͨҺѹ��ҵרҵ���������˿��֯���ܡ����ƽ��ܡ�����ѹ���ܡ������ܡ���ɰ�ܡ������ܡ���̽�ܡ�Һѹ�ס��������ܼ�������������Ʒ����Ʒ���г���ѹ���ߡ������뾶С����ƣ������ǿ��ʹ�����������ص㣬�㷺Ӧ����ұ��������ʯ����̽�����̻�е����ɽ�ɾ򼰸���Һѹ��е�� " />
+<title>大连巨力通液压管业有限公司</title>
+<meta name="keywords" content="高压胶管,钢丝编织胶管,缠绕胶管,气动管,喷砂管,金属软管,法兰盘,橡胶制品,密封件" />
+<meta name="description" content="巨力通液压管业专业精工制造钢丝编织胶管、缠绕胶管、超高压胶管、气动管、喷砂管、吹氧管、钻探管、液压缸、金属软管及各种橡胶尼龙制品。产品具有承受压力高、弯曲半径小、抗疲劳性能强、使用寿命长等特点，广泛应用于冶金连铸、石油钻探、工程机械、矿山采掘及各类液压机械。 " />
 <link href="css/css.css"  rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -65,12 +66,12 @@
 <script type="text/javascript" src="js/jquery.min.js" ></script>
 <script type="text/javascript">
 $(function() {
-	var sWidth = $("#focus").width(); //��ȡ����ͼ�Ŀ��ȣ���ʾ�����
-	var len = $("#focus ul li").length; //��ȡ����ͼ����
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
 	var index = 0;
 	var picTimer;
 	
-	//���´����������ְ�ť�Ͱ�ť��İ�͸������������һҳ����һҳ������ť
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
 	var btn = "<div class='btnBg'></div><div class='btn'>";
 	for(var i=0; i < len; i++) {
 		btn += "<span></span>";
@@ -79,37 +80,37 @@ $(function() {
 	$("#focus").append(btn);
 	$("#focus .btnBg").css("opacity",0.5);
 
-	//ΪС��ť������껬���¼�������ʾ��Ӧ������
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
 	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
 		index = $("#focus .btn span").index(this);
 		showPics(index);
 	}).eq(0).trigger("mouseenter");
 
-	//��һҳ����һҳ��ť͸���ȴ���
+	//上一页、下一页按钮透明度处理
 	$("#focus .preNext").css("opacity",0.2).hover(function() {
 		$(this).stop(true,false).animate({"opacity":"0.5"},300);
 	},function() {
 		$(this).stop(true,false).animate({"opacity":"0.2"},300);
 	});
 
-	//��һҳ��ť
+	//上一页按钮
 	$("#focus .pre").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 
-	//��һҳ��ť
+	//下一页按钮
 	$("#focus .next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
 
-	//����Ϊ���ҹ�����������liԪ�ض�����ͬһ�����󸡶�������������Ҫ�������ΧulԪ�صĿ���
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
 	$("#focus ul").css("width",sWidth * (len));
 	
-	//��껬�Ͻ���ͼʱֹͣ�Զ����ţ�����ʱ��ʼ�Զ�����
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
 	$("#focus").hover(function() {
 		clearInterval(picTimer);
 	},function() {
@@ -117,15 +118,15 @@ $(function() {
 			showPics(index);
 			index++;
 			if(index == len) {index = 0;}
-		},4000); //��4000�����Զ����ŵļ������λ������
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
 	}).trigger("mouseleave");
 	
-	//��ʾͼƬ���������ݽ��յ�indexֵ��ʾ��Ӧ������
-	function showPics(index) { //��ͨ�л�
-		var nowLeft = -index*sWidth; //����indexֵ����ulԪ�ص�leftֵ
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //ͨ��animate()����ulԪ�ع������������position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
 	}
 });
 
@@ -154,13 +155,13 @@ $(function() {
 </div>
 <div class="nav">
 <ul>
-<li><a href="index.htm" target="_self">��վ��ҳ</a></li>
+<li><a href="index.htm" target="_self">网站首页</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="about.htm" target="_self">��˾��Ϣ</a></li>
+<li><a href="about.htm" target="_self">公司信息</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="honor.htm" target="_self">��������</a></li>
+<li><a href="honor.htm" target="_self">荣誉资质</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="products.htm" target="_self">��Ʒչʾ</a></li>
+<li><a href="products.htm" target="_self">产品展示</a></li>
 <li><span>&nbsp;</span></li>
 </ul>
 </div>
@@ -200,11 +201,11 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product1.htm" class="img" title="����ֽ�������">
+            <td width="132"><a href="products/product1.htm" class="img" title="不锈钢金属软管">
             	<img src="uploadfile/201310/1-1.jpg"  width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product1.htm" >����ֽ�������</a></span></td>
+            <td align="center"><span><a href="products/product1.htm" >不锈钢金属软管</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -212,10 +213,10 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product2.htm"  class="img" title="��װ���Ƚ����ܳ�"><img src="uploadfile/201310/3-1.jpg" width="177" height="128" /></a></td>
+            <td width="132"><a href="products/product2.htm"  class="img" title="铠装隔热胶管总成"><img src="uploadfile/201310/3-1.jpg" width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product2.htm" >��װ���Ƚ����ܳ�</a></span></td>
+            <td align="center"><span><a href="products/product2.htm" >铠装隔热胶管总成</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -223,11 +224,11 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product3.htm" class="img" title="����ѹ��˿���ƽ���">
+            <td width="132"><a href="products/product3.htm" class="img" title="超高压钢丝缠绕胶管">
             	<img src="uploadfile/201310/4-1.jpg"  width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product3.htm" >����ѹ��˿���ƽ���</a></span></td>
+            <td align="center"><span><a href="products/product3.htm" >超高压钢丝缠绕胶管</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -235,11 +236,11 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product4.htm" class="img" title="��ѹ��˿��֯����">
+            <td width="132"><a href="products/product4.htm" class="img" title="高压钢丝编织胶管">
             	<img src="uploadfile/201310/5-1.jpg"  width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product4.htm" >��ѹ��˿��֯����</a></span></td>
+            <td align="center"><span><a href="products/product4.htm" >高压钢丝编织胶管</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -247,11 +248,11 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product5.htm"  class="img" title="ʯ�͸�ѹ��̽����">
+            <td width="132"><a href="products/product5.htm"  class="img" title="石油高压钻探胶管">
             	<img src="uploadfile/201310/6-1.jpg"  width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product5.htm" >ʯ�͸�ѹ��̽����</a></span></td>
+            <td align="center"><span><a href="products/product5.htm" >石油高压钻探胶管</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -259,11 +260,11 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product6.htm"  class="img" title="��ھ���˿����">
+            <td width="132"><a href="products/product6.htm"  class="img" title="大口径钢丝胶管">
             	<img src="uploadfile/201310/9-1.jpg"  width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product6.htm">��ھ���˿����</a></span></td>
+            <td align="center"><span><a href="products/product6.htm">大口径钢丝胶管</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -271,11 +272,11 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product7.htm"  class="img" title="�в�����">
+            <td width="132"><a href="products/product7.htm"  class="img" title="夹布胶管">
             	<img src="uploadfile/201310/12-1.jpg" width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product7.htm" >�в�����</a></span></td>
+            <td align="center"><span><a href="products/product7.htm" >夹布胶管</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -283,11 +284,11 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product8.htm"  class="img" title="��ɰ����">
+            <td width="132"><a href="products/product8.htm"  class="img" title="喷砂胶管">
             	<img src="uploadfile/201310/13-1.jpg"  width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product8.htm" >��ɰ����</a></span></td>
+            <td align="center"><span><a href="products/product8.htm" >喷砂胶管</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -295,11 +296,11 @@ $(function() {
         <td>
         <table width="100%" border="0" cellpadding="0" cellspacing="3">
           <tr>
-            <td width="132"><a href="products/product9.htm" class="img" title="������ͷ">
+            <td width="132"><a href="products/product9.htm" class="img" title="橡胶软接头">
             	<img src="uploadfile/201310/17-1.jpg"  width="177" height="128" /></a></td>
             </tr>
             <tr>
-            <td align="center"><span><a href="products/product9.htm" >������ͷ</a></span></td>
+            <td align="center"><span><a href="products/product9.htm" >橡胶软接头</a></span></td>
           </tr>
         </table>                
 	</td>
@@ -330,15 +331,15 @@ demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 <div class="bodyer1">
 <div class="lefter1">
 <ul>
-<li><a href="products/product1.htm"  title="����ֽ�������">����ֽ�������</a></li>
-<li><a href="products/product2.htm"  title="��װ���Ƚ����ܳ�">��װ���Ƚ����ܳ�</a></li>
-<li><a href="products/product3.htm"  title="����ѹ��˿���ƽ���">����ѹ��˿���ƽ���</a></li>
-<li><a href="products/product4.htm"  title="��ѹ��˿��֯����">��ѹ��˿��֯����</a></li>
-<li><a href="products/product5.htm"  title="ʯ�͸�ѹ��̽����">ʯ�͸�ѹ��̽����</a></li>
-<li><a href="products/product6.htm"  title="�в�����">��ھ���˿����</a></li>
-<li><a href="products/product7.htm"  title="��ɰ����">�в�����</a></li>
-<li><a href="products/product8.htm"  title="��ɰ����">��ɰ����</a></li>
-<li><a href="products/product9.htm"  title="������ͷ">������ͷ</a></li>
+<li><a href="products/product1.htm"  title="不锈钢金属软管">不锈钢金属软管</a></li>
+<li><a href="products/product2.htm"  title="铠装隔热胶管总成">铠装隔热胶管总成</a></li>
+<li><a href="products/product3.htm"  title="超高压钢丝缠绕胶管">超高压钢丝缠绕胶管</a></li>
+<li><a href="products/product4.htm"  title="高压钢丝编织胶管">高压钢丝编织胶管</a></li>
+<li><a href="products/product5.htm"  title="石油高压钻探胶管">石油高压钻探胶管</a></li>
+<li><a href="products/product6.htm"  title="夹布胶管">大口径钢丝胶管</a></li>
+<li><a href="products/product7.htm"  title="喷砂胶管">夹布胶管</a></li>
+<li><a href="products/product8.htm"  title="喷砂胶管">喷砂胶管</a></li>
+<li><a href="products/product9.htm"  title="橡胶软接头">橡胶软接头</a></li>
 </ul>
 </div>
 
@@ -350,19 +351,19 @@ demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
   <img src="images/rl1tt.jpg" tppabs="images/rl1tt.jpg" width="435" height="43" /> </div>
   <div class="rl1con">
     <img src="images/rl1img.jpg" tppabs="images/rl1img.jpg" width="139" height="170" style="float:left; padding-right:5px;" />
-    &nbsp;&nbsp;&nbsp; ��������ͨҺѹ��ҵ���޹�˾�����������ĺ������д�����˳�������������ĵ���λ�ú����õĻ���Ϊ���ǵķ�չ�����˻��ᡣ����˾��һ�Ҽ��о�����������������������ƷΪ���ĿƼ�����ҵ������Ա��64�ˡ�������
-    <a href="about.htm" >��ϸ��Ϣ>></a> </div>
+    &nbsp;&nbsp;&nbsp; 大连巨力通液压管业有限公司坐落在美丽的海滨城市大连旅顺口区。得天独厚的地理位置和良好的环境为我们的发展创造了机会。本公司是一家集研究、开发、生产和销售橡胶制品为主的科技型企业，现有员工64人…………
+    <a href="about.htm" >详细信息>></a> </div>
 </div>
 <div class="rl2">
-��ϵ�ˣ�������<br/>
-�֡�����15241127123<br/>
-�硡����0411-86269515
+联系人：张先生<br/>
+手　机：15241127123<br/>
+电　话：0411-86269515
   <br />
-  �����棺0318-4363251
+  传　真：0318-4363251
   <br />
-  �ء�ַ����������˳�����������ֵ����Ҵ�
+  地　址：大连市旅顺口区三涧堡街道韩家村
   <br />
-  ����ַ��www.jltyy.com</div>
+  网　址：www.jltyy.com</div>
 </div>
 <div class="r2">
   <img src="images/r2.jpg" width="660" height="134" /> </div>
@@ -377,19 +378,19 @@ demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
     <div class="r31con">
    <ul>
 			
-			  <li><span>2016-7-21</span><a href="news/cNews1.htm" >��˿��֯���ܵ�ʹ��ע������</a>
+			  <li><span>2016-7-21</span><a href="news/cNews1.htm" >钢丝编织胶管的使用注意事项</a>
               </li>
 			 
-			  <li><span>2016-7-15</span><a href="news/cNews2.htm" >����ֽ�������Ϊ��Ƕ������˿</a>
+			  <li><span>2016-7-15</span><a href="news/cNews2.htm" >不锈钢金属软管为内嵌金属钢丝</a>
               </li>
 			 
-			  <li><span>2016-6-10</span><a href="news/cNews3.htm" >������ע������</a>
+			  <li><span>2016-6-10</span><a href="news/cNews3.htm" >胶管须注意事项</a>
               </li>
 			 
-			  <li><span>2016-3-15</span><a href="news/cNews4.htm" >�ڽ������ܵĽṹ����в�ȡ��</a>
+			  <li><span>2016-3-15</span><a href="news/cNews4.htm" >在金属软管的结构设计中采取相</a>
               </li>
 			 
-			  <li><span>2016-3-14</span><a href="news/cNews5.htm" >�����ϻ����а�ȫ����һ��Ҫע</a>
+			  <li><span>2016-3-14</span><a href="news/cNews5.htm" >胶管老化后有安全隐患一定要注</a>
               </li>
 			 
 		  </ul>
@@ -405,15 +406,15 @@ demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
     <div class="r41con">
    <ul>
 			
-			  <li><span>2016-7-11</span><a href="news/iNews1.htm" >Ϊʲô�������ܵĹ��ʾ�������</a></li>
+			  <li><span>2016-7-11</span><a href="news/iNews1.htm" >为什么金属软管的国际竞争力这</a></li>
 			 
-			  <li><span>2016-6-15</span><a href="news/iNews2.htm" >�������ӷ�ʽ���</a></li>
+			  <li><span>2016-6-15</span><a href="news/iNews2.htm" >胶管连接方式详解</a></li>
 			 
-			  <li><span>2016-6-14</span><a href="news/iNews3.htm" >��������Ϊ�λ�ʧЧ</a></li>
+			  <li><span>2016-6-14</span><a href="news/iNews3.htm" >金属软管为何会失效</a></li>
 			 
-			  <li><span>2016-1-13</span><a href="news/iNews4.htm" >�����������׸ִ���֯��������</a></li>
+			  <li><span>2016-1-13</span><a href="news/iNews4.htm" >金属软管网套钢带编织锭数对网</a></li>
 			 
-			  <li><span>2015-10-21</span><a href="news/iNews5.htm" >��ѹ������ҵ���˺ܴ�ķ�չ��</a></li>
+			  <li><span>2015-10-21</span><a href="news/iNews5.htm" >高压胶管行业有了很大的发展和</a></li>
 			 
 		  </ul>
     </div>
@@ -432,7 +433,7 @@ demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
 }
 </style>
 <div class="bottom">
-��ϵ�ˣ����������ֻ���15241127123���绰��0411-86269515  ��ַ����������˳�����������ֵ����Ҵ�
+联系人：张先生　手机：15241127123　电话：0411-86269515  地址：大连市旅顺口区三涧堡街道韩家村
 </div>
 </div>
 </div>
