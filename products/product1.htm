@@ -2,8 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>����ֽ�������__��������ͨҺѹ��ҵ���޹�˾</title>
+<title>不锈钢金属软管__大连巨力通液压管业有限公司</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
@@ -54,12 +55,12 @@
 <script type="text/javascript" src="../js/jquery.min.js" ></script>
 <script type="text/javascript">
 $(function() {
-	var sWidth = $("#focus").width(); //��ȡ����ͼ�Ŀ��ȣ���ʾ�����
-	var len = $("#focus ul li").length; //��ȡ����ͼ����
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
 	var index = 0;
 	var picTimer;
 	
-	//���´����������ְ�ť�Ͱ�ť��İ�͸������������һҳ����һҳ������ť
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
 	var btn = "<div class='btnBg'></div><div class='btn'>";
 	for(var i=0; i < len; i++) {
 		btn += "<span></span>";
@@ -68,37 +69,37 @@ $(function() {
 	$("#focus").append(btn);
 	$("#focus .btnBg").css("opacity",0.5);
 
-	//ΪС��ť������껬���¼�������ʾ��Ӧ������
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
 	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
 		index = $("#focus .btn span").index(this);
 		showPics(index);
 	}).eq(0).trigger("mouseenter");
 
-	//��һҳ����һҳ��ť͸���ȴ���
+	//上一页、下一页按钮透明度处理
 	$("#focus .preNext").css("opacity",0.2).hover(function() {
 		$(this).stop(true,false).animate({"opacity":"0.5"},300);
 	},function() {
 		$(this).stop(true,false).animate({"opacity":"0.2"},300);
 	});
 
-	//��һҳ��ť
+	//上一页按钮
 	$("#focus .pre").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 
-	//��һҳ��ť
+	//下一页按钮
 	$("#focus .next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
 
-	//����Ϊ���ҹ�����������liԪ�ض�����ͬһ�����󸡶�������������Ҫ�������ΧulԪ�صĿ���
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
 	$("#focus ul").css("width",sWidth * (len));
 	
-	//��껬�Ͻ���ͼʱֹͣ�Զ����ţ�����ʱ��ʼ�Զ�����
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
 	$("#focus").hover(function() {
 		clearInterval(picTimer);
 	},function() {
@@ -106,15 +107,15 @@ $(function() {
 			showPics(index);
 			index++;
 			if(index == len) {index = 0;}
-		},4000); //��4000�����Զ����ŵļ������λ������
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
 	}).trigger("mouseleave");
 	
-	//��ʾͼƬ���������ݽ��յ�indexֵ��ʾ��Ӧ������
-	function showPics(index) { //��ͨ�л�
-		var nowLeft = -index*sWidth; //����indexֵ����ulԪ�ص�leftֵ
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //ͨ��animate()����ulԪ�ع������������position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
 	}
 });
 
@@ -140,13 +141,13 @@ $(function() {
 </div>
 <div class="nav">
 <ul>
-<li><a href="../index.htm" target="_self">��վ��ҳ</a></li>
+<li><a href="../index.htm" target="_self">网站首页</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../about.htm" target="_self">��˾��Ϣ</a></li>
+<li><a href="../about.htm" target="_self">公司信息</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../honor.htm" target="_self">��������</a></li>
+<li><a href="../honor.htm" target="_self">荣誉资质</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../products.htm" target="_self">��Ʒչʾ</a></li>
+<li><a href="../products.htm" target="_self">产品展示</a></li>
 <li><span>&nbsp;</span></li>
 </ul>
 </div>
@@ -163,36 +164,36 @@ $(function() {
   <div class="bodyer1">
   <div class="lefter">
 <ul>
-<li><a href="../products/product1.htm"  title="����ֽ�������">����ֽ�������</a></li>
-<li><a href="../products/product2.htm"  title="��װ���Ƚ����ܳ�">��װ���Ƚ����ܳ�</a></li>
-<li><a href="../products/product3.htm"  title="����ѹ��˿���ƽ���">����ѹ��˿���ƽ���</a></li>
-<li><a href="../products/product4.htm"  title="��ѹ��˿��֯����">��ѹ��˿��֯����</a></li>
-<li><a href="../products/product5.htm"  title="ʯ�͸�ѹ��̽����">ʯ�͸�ѹ��̽����</a></li>
-<li><a href="../products/product6.htm"  title="�в�����">��ھ���˿����</a></li>
-<li><a href="../products/product7.htm"  title="��ɰ����">�в�����</a></li>
-<li><a href="../products/product8.htm"  title="��ɰ����">��ɰ����</a></li>
-<li><a href="../products/product9.htm"  title="������ͷ">������ͷ</a></li>
+<li><a href="../products/product1.htm"  title="不锈钢金属软管">不锈钢金属软管</a></li>
+<li><a href="../products/product2.htm"  title="铠装隔热胶管总成">铠装隔热胶管总成</a></li>
+<li><a href="../products/product3.htm"  title="超高压钢丝缠绕胶管">超高压钢丝缠绕胶管</a></li>
+<li><a href="../products/product4.htm"  title="高压钢丝编织胶管">高压钢丝编织胶管</a></li>
+<li><a href="../products/product5.htm"  title="石油高压钻探胶管">石油高压钻探胶管</a></li>
+<li><a href="../products/product6.htm"  title="夹布胶管">大口径钢丝胶管</a></li>
+<li><a href="../products/product7.htm"  title="喷砂胶管">夹布胶管</a></li>
+<li><a href="../products/product8.htm"  title="喷砂胶管">喷砂胶管</a></li>
+<li><a href="../products/product9.htm"  title="橡胶软接头">橡胶软接头</a></li>
 </ul>
 </div>
 <div class="righter">
 <div class="righter110">
 	
 <div class="comrighttitle">
-��ǰλ�ã�<span><a href="../products.htm" >��Ʒ���� </a> <a>����ֽ�������</a> </span>
+当前位置：<span><a href="../products.htm" >产品中心 </a> <a>不锈钢金属软管</a> </span>
 </div>
  <div id="comrightcon">
 
 	  <table width="98%" border="0" align="center" cellpadding="5" cellspacing="0">
   <tr>
-    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">����ֽ�������</div></td>
+    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">不锈钢金属软管</div></td>
   </tr>
   <tr>
-    <td><div align="center">���ߣ�admin �������ڣ�2013-10-16 9:39:31�����2000</div></td>
+    <td><div align="center">作者：admin 发布日期：2013-10-16 9:39:31点击：2000</div></td>
   </tr>
   <tr>
     <td>
 
-	<div style="font-size:14px; line-height:25px;">��������ϵ��<BR>&nbsp;&nbsp;&nbsp; �������ѹ�����������ɲ���ֲ��ƹ����һ������˿��ִ����ף������Խ�ͷ�������������͸��ֽ��ʵ�����Ԫ����<BR>&nbsp;&nbsp;&nbsp; ���ص��ǣ��͸�ʴ���͸��¡��͵��£�-196�桫+420�棩�������ᡢ���С�������Ժá��㷺���ں��ա����졢ʯ�͡�������ұ�𡢵�������ֽ��ľ�ġ���֯��������ҽҩ��ʳƷ���̲ݡ���ͨ����ҵ��<BR>
+	<div style="font-size:14px; line-height:25px;">金属软管系列<BR>&nbsp;&nbsp;&nbsp; 不锈钢耐压金属软管是由不锈钢波纹管外编一层或多层钢丝或钢带网套，两端以接头或法兰，用于输送各种介质的柔性元件。<BR>&nbsp;&nbsp;&nbsp; 其特点是：耐腐蚀、耐高温、耐低温（-196℃～+420℃）、重量轻、体积小、柔软性好。广泛用于航空、航天、石油、化工、冶金、电力、造纸、木材、纺织、建筑、医药、食品、烟草、交通等行业。<BR>
 <TABLE style="TEXT-ALIGN: center" border=0 cellSpacing=2 cellPadding=3 width="100%" align=center>
 <TBODY>
 <TR>
@@ -214,24 +215,24 @@ $(function() {
 <TBODY>
 <TR>
 <TD height=25 rowSpan=2 width=76>
-<P align=center>��ʽ�Ǻ�</P></TD>
+<P align=center>形式记号</P></TD>
 <TD height=25 rowSpan=2 width=78>
-<P align=center>ͨ��(<SPAN lang=EN-US xml:lang="EN-US">A</SPAN>)</P></TD>
+<P align=center>通径(<SPAN lang=EN-US xml:lang="EN-US">A</SPAN>)</P></TD>
 <TD height=25 width=153 colSpan=2>
-<P align=center>�ߴ�(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
+<P align=center>尺寸(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
 <TD height=25 width=153 colSpan=2>
-<P align=center>�����뾶(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
+<P align=center>弯曲半径(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
 <TD height=25 width=181 colSpan=2>
-<P align=center>����ʹ��ѹ��</P></TD></TR>
+<P align=center>软管使用压力</P></TD></TR>
 <TR>
 <TD height=25 width=77>
-<P align=center>�ھ�</P></TD>
+<P align=center>内径</P></TD>
 <TD height=25 width=77>
-<P align=center>�⾶</P></TD>
+<P align=center>外径</P></TD>
 <TD height=25 width=77>
-<P align=center>��С</P></TD>
+<P align=center>最小</P></TD>
 <TD height=25 width=77>
-<P align=center>����</P></TD>
+<P align=center>反复</P></TD>
 <TD height=25 width=102>
 <P align=center>(<SPAN lang=EN-US xml:lang="EN-US">kgf/cm2</SPAN>)</P></TD>
 <TD height=25 width=79>
@@ -347,33 +348,33 @@ $(function() {
 <TBODY>
 <TR>
 <TD height=25 rowSpan=2 width=50>
-<P align=center>��ʽ�Ǻ�</P></TD>
+<P align=center>形式记号</P></TD>
 <TD height=25 rowSpan=2 width=60>
-<P align=center>����ͨ��(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
+<P align=center>公称通径(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
 <TD height=25 rowSpan=2 width=64>
-<P align=center>�ھ�<BR><SPAN lang=EN-US xml:lang="EN-US">(mm)</SPAN></P></TD>
+<P align=center>内径<BR><SPAN lang=EN-US xml:lang="EN-US">(mm)</SPAN></P></TD>
 <TD height=25 colSpan=2>
-<P align=center>�⾶(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
+<P align=center>外径(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
 <TD height=25 colSpan=2>
-<P align=center>��С���뾶(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
+<P align=center>最小曲半径(<SPAN lang=EN-US xml:lang="EN-US">mm</SPAN>)</P></TD>
 <TD height=25 width=110>
-<P align=center>���ʹ��ѹ��(<SPAN lang=EN-US xml:lang="EN-US">Mpa</SPAN>)</P></TD></TR>
+<P align=center>最高使用压力(<SPAN lang=EN-US xml:lang="EN-US">Mpa</SPAN>)</P></TD></TR>
 <TR>
 <TD height=25 width=43>
-<P align=center>����</P></TD>
+<P align=center>本体</P></TD>
 <TD height=25 width=56>
-<P align=center>һ����</P></TD>
+<P align=center>一层网</P></TD>
 <TD height=25 width=48>
-<P align=center>��̬</P></TD>
+<P align=center>静态</P></TD>
 <TD height=25 width=60>
-<P align=center>��̬</P></TD>
+<P align=center>动态</P></TD>
 <TD height=25 width=110>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">2</SPAN>������</P></TD></TR>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">2</SPAN>层套网</P></TD></TR>
 <TR>
 <TD height=25 rowSpan=18 width=50>
 <P align=center>A</P></TD>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">14 1/2</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">14 1/2</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>14</P></TD>
 <TD height=25 width=43>
@@ -388,7 +389,7 @@ $(function() {
 <P align=center>12.5</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">16 5/8</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">16 5/8</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>16</P></TD>
 <TD height=25 width=43>
@@ -403,7 +404,7 @@ $(function() {
 <P align=center>10.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">20 3/4</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">20 3/4</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>20</P></TD>
 <TD height=25 width=43>
@@ -418,7 +419,7 @@ $(function() {
 <P align=center>8.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">25 1</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">25 1</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>25</P></TD>
 <TD height=25 width=43>
@@ -433,7 +434,7 @@ $(function() {
 <P align=center>7.5</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">32 1 1/4</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">32 1 1/4</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>32</P></TD>
 <TD height=25 width=43>
@@ -448,7 +449,7 @@ $(function() {
 <P align=center>6.4</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">40 1 1/2</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">40 1 1/2</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>40</P></TD>
 <TD height=25 width=43>
@@ -463,7 +464,7 @@ $(function() {
 <P align=center>5.6</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">50 2</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">50 2</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>50</P></TD>
 <TD height=25 width=43>
@@ -478,7 +479,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">65 2 1/2</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">65 2 1/2</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>65</P></TD>
 <TD height=25 width=43>
@@ -493,7 +494,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">80 3</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">80 3</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>80</P></TD>
 <TD height=25 width=43>
@@ -508,7 +509,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">100 4</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">100 4</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>100</P></TD>
 <TD height=25 width=43>
@@ -523,7 +524,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">125 5</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">125 5</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>125</P></TD>
 <TD height=25 width=43>
@@ -538,7 +539,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">150 6</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">150 6</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>150</P></TD>
 <TD height=25 width=43>
@@ -553,7 +554,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">175 7</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">175 7</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>175</P></TD>
 <TD height=25 width=43>
@@ -568,7 +569,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">200 8</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">200 8</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>200</P></TD>
 <TD height=25 width=43>
@@ -583,7 +584,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">250 10</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">250 10</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>250</P></TD>
 <TD height=25 width=43>
@@ -598,7 +599,7 @@ $(function() {
 <P align=center>4.0</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">300 12</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">300 12</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>300</P></TD>
 <TD height=25 width=43>
@@ -613,7 +614,7 @@ $(function() {
 <P align=center>2.5</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">350 14</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">350 14</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>350</P></TD>
 <TD height=25 width=43>
@@ -628,7 +629,7 @@ $(function() {
 <P align=center>2.5</P></TD></TR>
 <TR>
 <TD height=25 width=60>
-<P align=center><SPAN lang=EN-US xml:lang="EN-US">400 16</SPAN>��</P></TD>
+<P align=center><SPAN lang=EN-US xml:lang="EN-US">400 16</SPAN>″</P></TD>
 <TD height=25 width=64>
 <P align=center>400</P></TD>
 <TD height=25 width=43>
@@ -660,7 +661,7 @@ $(function() {
 }
 </style>
 <div class="bottom">
-��ϵ�ˣ����������ֻ���15241127123���绰��0411-86269515  ��ַ����������˳�����������ֵ����Ҵ�
+联系人：张先生　手机：15241127123　电话：0411-86269515  地址：大连市旅顺口区三涧堡街道韩家村
 </div>
 </div>
 </div>
