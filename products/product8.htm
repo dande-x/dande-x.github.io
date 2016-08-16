@@ -2,8 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>��ɰ����__��������ͨҺѹ��ҵ���޹�˾</title>
+<title>喷砂胶管__大连巨力通液压管业有限公司</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
@@ -54,12 +55,12 @@
 <script type="text/javascript" src="../js/jquery.min.js" ></script>
 <script type="text/javascript">
 $(function() {
-	var sWidth = $("#focus").width(); //��ȡ����ͼ�Ŀ��ȣ���ʾ�����
-	var len = $("#focus ul li").length; //��ȡ����ͼ����
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
 	var index = 0;
 	var picTimer;
 	
-	//���´����������ְ�ť�Ͱ�ť��İ�͸������������һҳ����һҳ������ť
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
 	var btn = "<div class='btnBg'></div><div class='btn'>";
 	for(var i=0; i < len; i++) {
 		btn += "<span></span>";
@@ -68,37 +69,37 @@ $(function() {
 	$("#focus").append(btn);
 	$("#focus .btnBg").css("opacity",0.5);
 
-	//ΪС��ť������껬���¼�������ʾ��Ӧ������
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
 	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
 		index = $("#focus .btn span").index(this);
 		showPics(index);
 	}).eq(0).trigger("mouseenter");
 
-	//��һҳ����һҳ��ť͸���ȴ���
+	//上一页、下一页按钮透明度处理
 	$("#focus .preNext").css("opacity",0.2).hover(function() {
 		$(this).stop(true,false).animate({"opacity":"0.5"},300);
 	},function() {
 		$(this).stop(true,false).animate({"opacity":"0.2"},300);
 	});
 
-	//��һҳ��ť
+	//上一页按钮
 	$("#focus .pre").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 
-	//��һҳ��ť
+	//下一页按钮
 	$("#focus .next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
 
-	//����Ϊ���ҹ�����������liԪ�ض�����ͬһ�����󸡶�������������Ҫ�������ΧulԪ�صĿ���
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
 	$("#focus ul").css("width",sWidth * (len));
 	
-	//��껬�Ͻ���ͼʱֹͣ�Զ����ţ�����ʱ��ʼ�Զ�����
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
 	$("#focus").hover(function() {
 		clearInterval(picTimer);
 	},function() {
@@ -106,15 +107,15 @@ $(function() {
 			showPics(index);
 			index++;
 			if(index == len) {index = 0;}
-		},4000); //��4000�����Զ����ŵļ������λ������
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
 	}).trigger("mouseleave");
 	
-	//��ʾͼƬ���������ݽ��յ�indexֵ��ʾ��Ӧ������
-	function showPics(index) { //��ͨ�л�
-		var nowLeft = -index*sWidth; //����indexֵ����ulԪ�ص�leftֵ
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //ͨ��animate()����ulԪ�ع������������position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
 	}
 });
 
@@ -141,13 +142,13 @@ $(function() {
 </div>
 <div class="nav">
 <ul>
-<li><a href="../index.htm" target="_self">��վ��ҳ</a></li>
+<li><a href="../index.htm" target="_self">网站首页</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../about.htm" target="_self">��˾��Ϣ</a></li>
+<li><a href="../about.htm" target="_self">公司信息</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../honor.htm" target="_self">��������</a></li>
+<li><a href="../honor.htm" target="_self">荣誉资质</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../products.htm" target="_self">��Ʒչʾ</a></li>
+<li><a href="../products.htm" target="_self">产品展示</a></li>
 <li><span>&nbsp;</span></li>
 </ul>
 </div>
@@ -164,31 +165,31 @@ $(function() {
   <div class="bodyer1">
   <div class="lefter">
 <ul>
-<li><a href="../products/product1.htm"  title="����ֽ�������">����ֽ�������</a></li>
-<li><a href="../products/product2.htm"  title="��װ���Ƚ����ܳ�">��װ���Ƚ����ܳ�</a></li>
-<li><a href="../products/product3.htm"  title="����ѹ��˿���ƽ���">����ѹ��˿���ƽ���</a></li>
-<li><a href="../products/product4.htm"  title="��ѹ��˿��֯����">��ѹ��˿��֯����</a></li>
-<li><a href="../products/product5.htm"  title="ʯ�͸�ѹ��̽����">ʯ�͸�ѹ��̽����</a></li>
-<li><a href="../products/product6.htm"  title="�в�����">��ھ���˿����</a></li>
-<li><a href="../products/product7.htm"  title="��ɰ����">�в�����</a></li>
-<li><a href="../products/product8.htm"  title="��ɰ����">��ɰ����</a></li>
-<li><a href="../products/product9.htm"  title="������ͷ">������ͷ</a></li>
+<li><a href="../products/product1.htm"  title="不锈钢金属软管">不锈钢金属软管</a></li>
+<li><a href="../products/product2.htm"  title="铠装隔热胶管总成">铠装隔热胶管总成</a></li>
+<li><a href="../products/product3.htm"  title="超高压钢丝缠绕胶管">超高压钢丝缠绕胶管</a></li>
+<li><a href="../products/product4.htm"  title="高压钢丝编织胶管">高压钢丝编织胶管</a></li>
+<li><a href="../products/product5.htm"  title="石油高压钻探胶管">石油高压钻探胶管</a></li>
+<li><a href="../products/product6.htm"  title="夹布胶管">大口径钢丝胶管</a></li>
+<li><a href="../products/product7.htm"  title="喷砂胶管">夹布胶管</a></li>
+<li><a href="../products/product8.htm"  title="喷砂胶管">喷砂胶管</a></li>
+<li><a href="../products/product9.htm"  title="橡胶软接头">橡胶软接头</a></li>
 </ul>
 </div>
 <div class="righter">
 <div class="righter110">
 	
 <div class="comrighttitle">
-��ǰλ�ã�<span><a href="../products.htm" >��Ʒ���� </a> > <a href="" >��ɰ����</a> </span>
+当前位置：<span><a href="../products.htm" >产品中心 </a> > <a href="" >喷砂胶管</a> </span>
 </div>
  <div id="comrightcon">
 
 	  <table width="98%" border="0" align="center" cellpadding="5" cellspacing="0">
   <tr>
-    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">��ɰ����</div></td>
+    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">喷砂胶管</div></td>
   </tr>
   <tr>
-    <td><div align="center">���ߣ�admin �������ڣ�2013-10-15 17:03:55�����1649</div></td>
+    <td><div align="center">作者：admin 发布日期：2013-10-15 17:03:55点击：1649</div></td>
   </tr>
   <tr>
     <td>
@@ -196,17 +197,17 @@ $(function() {
 	<div style="font-size:14px; line-height:25px;"><TABLE style="TEXT-ALIGN: center" border=0 cellSpacing=2 cellPadding=3 width="100%" align=center>
 <TBODY>
 <TR>
-<TD><IMG src="../uploadfile/201310/13-1.jpg" ><BR>��ɰ����</TD>
-<TD><IMG src="../uploadfile/201310/13-2.jpg" ><BR>��ɰ����</TD>
-<TD><IMG src="../uploadfile/201310/13-3.jpg" ><BR>��ɰ����</TD></TR>
+<TD><IMG src="../uploadfile/201310/13-1.jpg" ><BR>喷砂胶管</TD>
+<TD><IMG src="../uploadfile/201310/13-2.jpg" ><BR>喷砂胶管</TD>
+<TD><IMG src="../uploadfile/201310/13-3.jpg" ><BR>喷砂胶管</TD></TR>
 <TR>
-<TD><IMG src="../uploadfile/201310/13-4.jpg" ><BR>�в���ɰ����</TD>
-<TD><IMG src="../uploadfile/201310/13-5.jpg" ><BR>��˿��֯��ɰ����</TD>
-<TD><IMG src="../uploadfile/201310/13-6.jpg" ><BR>������ɰ����</TD></TR></TBODY></TABLE><BR>
+<TD><IMG src="../uploadfile/201310/13-4.jpg" ><BR>夹布喷砂胶管</TD>
+<TD><IMG src="../uploadfile/201310/13-5.jpg" ><BR>钢丝编织喷砂胶管</TD>
+<TD><IMG src="../uploadfile/201310/13-6.jpg" ><BR>各种喷砂胶管</TD></TR></TBODY></TABLE><BR>
 <TABLE border=0 cellSpacing=0 cellPadding=0 width=100% align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 28px; FONT-FAMILY: ������; COLOR: rgb(0,0,0); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamedaaa vAlign=top colSpan=3>1.��Ʒ����֧�֣�����Ʒ�ɱ���˾���������Ϲ��ҽ��ܡ������о�����ר�ҹ�ͬ���������ö����䷽���Ƚ�����������<BR>2.��Ʒ�ص㣺<BR>�ڽ��㣺���þ۰����Ͷ�����Ϊ��Ҫԭ���ϣ����������ⲹǿ������Ʒ�ڽ���ɫΪ��ɫ͸��(���ɫ)״̬�����и���ĥ�������ԡ��͸�ѹ���ص㣬��ĥָ������ͨ��ɰ���ܵ�2-3������ͬ��ҵ�����С���ĥ������������<BR>��ǿ�㣺�в���ɰ���ܲ������ʲ���������ǿ�㣬���Ժá���ѹ����ǿ��<BR>�ֱ���ɰ���ܲ��ö�ͭ����ר�ø�˿��֯�����ܹ���ѹ���Ǽв����ܵ�3-4����������ѹ�̶ȸߣ�������������Խ֮�ص㡣<BR>3.ʹ�÷�Χ����Ʒ��Ҫ���ڸ����������̣�������ҡ�������ê����ˮ�磬��ҵ������������ӵ�й㷺��Ӧ������<BR>4.������ŵ���������ʹ�ñ���Ʒʱ���������Ҳ�Ʒ�Ա�ʹ�ã��Ƚϱ�����Ʒ����Խ�ԡ�</TD></TR>
+<TD style="LINE-HEIGHT: 28px; FONT-FAMILY: 新宋体; COLOR: rgb(0,0,0); FONT-SIZE: 12px; TEXT-DECORATION: none" class=unnamedaaa vAlign=top colSpan=3>1.产品技术支持：本产品由本公司技术部联合国家胶管、胶布研究中心专家共同开发，采用独特配方及先进工艺生产。<BR>2.产品特点：<BR>内胶层：采用聚氨酯和丁基橡胶为主要原材料，并加入特殊补强剂。成品内胶颜色为黄色透明(或黑色)状态，具有高耐磨、高韧性、耐高压等特点，耐磨指标是普通喷砂胶管的2-3倍。在同行业中享有“耐磨王”的美誉。<BR>增强层：夹布喷砂胶管采用优质擦胶布作增强层，柔性好、承压能力强；<BR>钢编喷砂胶管采用镀铜胶管专用钢丝编织，承受工作压力是夹布胶管的3-4倍，具有耐压程度高，抗屈挠性能优越之特点。<BR>3.使用范围：产品主要用于各类隧道工程，井巷、洞室、护坡喷锚，在水电，矿业、军防等领域拥有广泛的应用领域。<BR>4.质量承诺：建议初次使用本产品时与其他厂家产品对比使用，比较本厂产品的优越性。</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" vAlign=top colSpan=3>
 <TABLE border=0 cellSpacing=0 cellPadding=0 width=630 align=center>
@@ -222,47 +223,47 @@ $(function() {
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 rowSpan=2 colSpan=2>
 <DIV align=center>
-<P align=center>�ͺ� ָ�� ��Ŀ</P></DIV></TD>
+<P align=center>型号 指标 项目</P></DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 colSpan=2>
-<DIV align=center>��ɰ����</DIV></TD></TR>
+<DIV align=center>喷砂胶管</DIV></TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 width="19%">
-<DIV align=center>�ڲ㽺</DIV></TD>
+<DIV align=center>内层胶</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 width="18%">
-<DIV align=center>��㽺</DIV></TD></TR>
+<DIV align=center>外层胶</DIV></TD></TR>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" height=25 colSpan=2>
-<DIV align=center>����ǿ��Mpa% ��С��</DIV></TD>
+<DIV align=center>拉伸强度Mpa% 不小于</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <DIV align=center>15.0</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <DIV align=center>13.0</DIV></TD></TR>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" colSpan=2>
-<DIV align=center>����ǿ��Mpa% ��С��</DIV></TD>
+<DIV align=center>扯断强度Mpa% 不小于</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <DIV align=center>530</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <DIV align=center>320</DIV></TD></TR>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" rowSpan=2 width="22%">
-<DIV align=center>�ȿ����ϻ�70C��72H</DIV></TD>
+<DIV align=center>热空气老化70C×72H</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" width="41%">
-<DIV align=center>����ǿ�ȱ仯��%</DIV></TD>
+<DIV align=center>拉伸强度变化率%</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" colSpan=2>
-<DIV align=center>��25</DIV></TD></TR>
+<DIV align=center>±25</DIV></TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff width="41%">�����쳤�ʱ仯��%</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff width="41%">扯断伸长率变化率%</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff colSpan=2>
 <DIV align=center>+10 -30</DIV></TD></TR>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" colSpan=2>
-<DIV align=center>ĥ����(�������� )CM ��С��</DIV></TD>
+<DIV align=center>磨耗量(立方厘米 )CM 不小于</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" colSpan=2>
 <DIV align=center>0.35</DIV></TD></TR>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" height=17 colSpan=2>
-<DIV align=center>�����ճ��ǿ�� ��С��</DIV></TD>
+<DIV align=center>各层间粘附强度 不小于</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" colSpan=2>
 <DIV align=center>2.0</DIV></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" width=313>
@@ -274,21 +275,21 @@ $(function() {
 <TBODY>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 colSpan=2>
-<DIV align=center>�ھ�</DIV></TD>
+<DIV align=center>内径</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 colSpan=2>
-<DIV align=center>������</DIV></TD></TR>
+<DIV align=center>胶层厚度</DIV></TD></TR>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 width=66>
-<DIV align=center>���Ƴߴ�</DIV></TD>
+<DIV align=center>公称尺寸</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 width=55>
-<DIV align=center>ƫ��</DIV></TD>
+<DIV align=center>偏差</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#75b1e7 colSpan=2>
 <DIV align=center></DIV></TD></TR>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <DIV align=center>20</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" rowSpan=3>
-<DIV align=center>��0.75</DIV></TD>
+<DIV align=center>±0.75</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" rowSpan=8 width=35>
 <P align=center>4</P>
 <P align=center>5.5</P></TD>
@@ -312,7 +313,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <DIV align=center>(45)</DIV></TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" rowSpan=3>
-<DIV align=center>��1.50</DIV></TD></TR>
+<DIV align=center>±1.50</DIV></TD></TR>
 <TR bgColor=#ffffff>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
 <DIV align=center>50</DIV></TD></TR>
@@ -445,7 +446,7 @@ $(function() {
 }
 </style>
 <div class="bottom">
-��ϵ�ˣ����������ֻ���15241127123���绰��0411-86269515  ��ַ����������˳�����������ֵ����Ҵ�</div>
+联系人：张先生　手机：15241127123　电话：0411-86269515  地址：大连市旅顺口区三涧堡街道韩家村</div>
 </div>
 </div>
 </div>
