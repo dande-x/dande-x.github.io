@@ -2,8 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>��ھ���˿����__��������ͨҺѹ��ҵ���޹�˾</title>
+<title>大口径钢丝胶管__大连巨力通液压管业有限公司</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
@@ -54,12 +55,12 @@
 <script type="text/javascript" src="../js/jquery.min.js" ></script>
 <script type="text/javascript">
 $(function() {
-	var sWidth = $("#focus").width(); //��ȡ����ͼ�Ŀ��ȣ���ʾ�����
-	var len = $("#focus ul li").length; //��ȡ����ͼ����
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
 	var index = 0;
 	var picTimer;
 	
-	//���´����������ְ�ť�Ͱ�ť��İ�͸������������һҳ����һҳ������ť
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
 	var btn = "<div class='btnBg'></div><div class='btn'>";
 	for(var i=0; i < len; i++) {
 		btn += "<span></span>";
@@ -68,37 +69,37 @@ $(function() {
 	$("#focus").append(btn);
 	$("#focus .btnBg").css("opacity",0.5);
 
-	//ΪС��ť������껬���¼�������ʾ��Ӧ������
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
 	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
 		index = $("#focus .btn span").index(this);
 		showPics(index);
 	}).eq(0).trigger("mouseenter");
 
-	//��һҳ����һҳ��ť͸���ȴ���
+	//上一页、下一页按钮透明度处理
 	$("#focus .preNext").css("opacity",0.2).hover(function() {
 		$(this).stop(true,false).animate({"opacity":"0.5"},300);
 	},function() {
 		$(this).stop(true,false).animate({"opacity":"0.2"},300);
 	});
 
-	//��һҳ��ť
+	//上一页按钮
 	$("#focus .pre").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 
-	//��һҳ��ť
+	//下一页按钮
 	$("#focus .next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
 
-	//����Ϊ���ҹ�����������liԪ�ض�����ͬһ�����󸡶�������������Ҫ�������ΧulԪ�صĿ���
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
 	$("#focus ul").css("width",sWidth * (len));
 	
-	//��껬�Ͻ���ͼʱֹͣ�Զ����ţ�����ʱ��ʼ�Զ�����
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
 	$("#focus").hover(function() {
 		clearInterval(picTimer);
 	},function() {
@@ -106,15 +107,15 @@ $(function() {
 			showPics(index);
 			index++;
 			if(index == len) {index = 0;}
-		},4000); //��4000�����Զ����ŵļ������λ������
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
 	}).trigger("mouseleave");
 	
-	//��ʾͼƬ���������ݽ��յ�indexֵ��ʾ��Ӧ������
-	function showPics(index) { //��ͨ�л�
-		var nowLeft = -index*sWidth; //����indexֵ����ulԪ�ص�leftֵ
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //ͨ��animate()����ulԪ�ع������������position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
 	}
 });
 
@@ -140,13 +141,13 @@ $(function() {
 </div>
 <div class="nav">
 <ul>
-<li><a href="../index.htm" target="_self">��վ��ҳ</a></li>
+<li><a href="../index.htm" target="_self">网站首页</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../about.htm" target="_self">��˾��Ϣ</a></li>
+<li><a href="../about.htm" target="_self">公司信息</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../honor.htm" target="_self">��������</a></li>
+<li><a href="../honor.htm" target="_self">荣誉资质</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../products.htm" target="_self">��Ʒչʾ</a></li>
+<li><a href="../products.htm" target="_self">产品展示</a></li>
 <li><span>&nbsp;</span></li>
 </ul>
 </div>
@@ -164,31 +165,31 @@ $(function() {
   <div class="lefter">
 <ul>
 <ul>
-<li><a href="../products/product1.htm"  title="����ֽ�������">����ֽ�������</a></li>
-<li><a href="../products/product2.htm"  title="��װ���Ƚ����ܳ�">��װ���Ƚ����ܳ�</a></li>
-<li><a href="../products/product3.htm"  title="����ѹ��˿���ƽ���">����ѹ��˿���ƽ���</a></li>
-<li><a href="../products/product4.htm"  title="��ѹ��˿��֯����">��ѹ��˿��֯����</a></li>
-<li><a href="../products/product5.htm"  title="ʯ�͸�ѹ��̽����">ʯ�͸�ѹ��̽����</a></li>
-<li><a href="../products/product6.htm"  title="�в�����">��ھ���˿����</a></li>
-<li><a href="../products/product7.htm"  title="��ɰ����">�в�����</a></li>
-<li><a href="../products/product8.htm"  title="��ɰ����">��ɰ����</a></li>
-<li><a href="../products/product9.htm"  title="������ͷ">������ͷ</a></li>
+<li><a href="../products/product1.htm"  title="不锈钢金属软管">不锈钢金属软管</a></li>
+<li><a href="../products/product2.htm"  title="铠装隔热胶管总成">铠装隔热胶管总成</a></li>
+<li><a href="../products/product3.htm"  title="超高压钢丝缠绕胶管">超高压钢丝缠绕胶管</a></li>
+<li><a href="../products/product4.htm"  title="高压钢丝编织胶管">高压钢丝编织胶管</a></li>
+<li><a href="../products/product5.htm"  title="石油高压钻探胶管">石油高压钻探胶管</a></li>
+<li><a href="../products/product6.htm"  title="夹布胶管">大口径钢丝胶管</a></li>
+<li><a href="../products/product7.htm"  title="喷砂胶管">夹布胶管</a></li>
+<li><a href="../products/product8.htm"  title="喷砂胶管">喷砂胶管</a></li>
+<li><a href="../products/product9.htm"  title="橡胶软接头">橡胶软接头</a></li>
 </ul>
 </div>
 <div class="righter">
 <div class="righter110">
 	
 <div class="comrighttitle">
-��ǰλ�ã�<span><a href="../products.htm" >��Ʒ���� </a> > <a  >��ھ���˿����</a> </span>
+当前位置：<span><a href="../products.htm" >产品中心 </a> > <a  >大口径钢丝胶管</a> </span>
 </div>
  <div id="comrightcon">
 
 	  <table width="98%" border="0" align="center" cellpadding="5" cellspacing="0">
   <tr>
-    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">��ھ���˿����</div></td>
+    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">大口径钢丝胶管</div></td>
   </tr>
   <tr>
-    <td><div align="center">���ߣ�admin �������ڣ�2013-10-15 17:14:15�����1833</div></td>
+    <td><div align="center">作者：admin 发布日期：2013-10-15 17:14:15点击：1833</div></td>
   </tr>
   <tr>
     <td>
@@ -206,23 +207,23 @@ $(function() {
 <TD><IMG src="../uploadfile/201310/9-6.jpg" ></TD></TR>
 <TR>
 <TD><IMG src="../uploadfile/201310/9-7.jpg" ></TD>
-<TD></TD></TR></TBODY></TABLE><BR>��ھ���˿���ܼ�������<BR>
+<TD></TD></TR></TBODY></TABLE><BR>大口径钢丝胶管技术参数<BR>
 <TABLE style="PADDING-BOTTOM: 0px; WIDOWS: 2; TEXT-TRANSFORM: none; TEXT-INDENT: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT: 12px/36px Simsun; WHITE-SPACE: normal; ORPHANS: 2; LETTER-SPACING: normal; HEIGHT: 653px; COLOR: rgb(0,0,0); WORD-SPACING: 0px; PADDING-TOP: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px" border=0 cellSpacing=1 cellPadding=0 width="100%" bgColor=#333333 align=center>
 <TBODY style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px">
 <TR style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffcc33>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center colSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">�ھ���mm��</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center rowSpan=2 colSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">�в�����</SPAN> 
-<P style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px"><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">���㣩</SPAN></P></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center rowSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">������˿ֱ����mm��</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center colSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">�ܽ�ͷ���ȣ�mm��</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center colSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">���ܳ���</SPAN></TD></TR>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center colSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">内径（mm）</SPAN></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center rowSpan=2 colSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">夹布层数</SPAN> 
+<P style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px"><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">（层）</SPAN></P></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center rowSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">螺旋钢丝直径（mm）</SPAN></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center colSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">管接头长度（mm）</SPAN></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center colSpan=2 align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">胶管长度</SPAN></TD></TR>
 <TR style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffcc33>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">���Ƴߴ�</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">����</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">�ߴ�</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">����</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">�ߴ磨m��</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">���mm��</SPAN></TD></TR>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">公称尺寸</SPAN></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">公差</SPAN></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">尺寸</SPAN></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">公差</SPAN></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">尺寸（m）</SPAN></TD>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">公差（mm）</SPAN></TD></TR>
 <TR style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#f7f7f7>
 <TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">38</SPAN></TD>
 <TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">1.2</SPAN></TD>
@@ -452,7 +453,7 @@ $(function() {
 <TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">700</SPAN></TD>
 <TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">25</SPAN></TD>
 <TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">14</SPAN></TD>
-<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">200</SPAN></TD></TR></TBODY></TABLE>ע�����������Ĵ�ھ���˿�������ھ�ΪDN2000mm��ѹ���ֱ�Ϊ0.6MPa,1.0MPa, 1.6MPa,2.5MPa.��ӭ����������ѯǢ̸.</div>
+<TD style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-SIZE: 12px; PADDING-TOP: 0px" bgColor=#ffffff height=25 vAlign=center align=middle><SPAN style="PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: rgb(0,0,0); FONT-SIZE: 12px; PADDING-TOP: 0px">200</SPAN></TD></TR></TBODY></TABLE>注：本厂制作的大口径钢丝胶管最大口径为DN2000mm，压力分别为0.6MPa,1.0MPa, 1.6MPa,2.5MPa.欢迎来人来电咨询洽谈.</div>
 </td>
   </tr>
 
@@ -473,7 +474,7 @@ $(function() {
 }
 </style>
 <div class="bottom">
-��ϵ�ˣ����������ֻ���15241127123���绰��0411-86269515  ��ַ����������˳�����������ֵ����Ҵ�</div>
+联系人：张先生　手机：15241127123　电话：0411-86269515  地址：大连市旅顺口区三涧堡街道韩家村</div>
 </div>
 </div>
 </div>
