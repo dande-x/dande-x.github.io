@@ -2,8 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>����ѹ��˿���ƽ���__��������ͨҺѹ��ҵ���޹�˾</title>
+<title>超高压钢丝缠绕胶管__大连巨力通液压管业有限公司</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="../css/css.css"  rel="stylesheet" type="text/css" />
@@ -54,12 +55,12 @@
 <script type="text/javascript" src="../js/jquery.min.js" ></script>
 <script type="text/javascript">
 $(function() {
-	var sWidth = $("#focus").width(); //��ȡ����ͼ�Ŀ��ȣ���ʾ�����
-	var len = $("#focus ul li").length; //��ȡ����ͼ����
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
 	var index = 0;
 	var picTimer;
 	
-	//���´����������ְ�ť�Ͱ�ť��İ�͸������������һҳ����һҳ������ť
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
 	var btn = "<div class='btnBg'></div><div class='btn'>";
 	for(var i=0; i < len; i++) {
 		btn += "<span></span>";
@@ -68,37 +69,37 @@ $(function() {
 	$("#focus").append(btn);
 	$("#focus .btnBg").css("opacity",0.5);
 
-	//ΪС��ť������껬���¼�������ʾ��Ӧ������
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
 	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
 		index = $("#focus .btn span").index(this);
 		showPics(index);
 	}).eq(0).trigger("mouseenter");
 
-	//��һҳ����һҳ��ť͸���ȴ���
+	//上一页、下一页按钮透明度处理
 	$("#focus .preNext").css("opacity",0.2).hover(function() {
 		$(this).stop(true,false).animate({"opacity":"0.5"},300);
 	},function() {
 		$(this).stop(true,false).animate({"opacity":"0.2"},300);
 	});
 
-	//��һҳ��ť
+	//上一页按钮
 	$("#focus .pre").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 
-	//��һҳ��ť
+	//下一页按钮
 	$("#focus .next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
 
-	//����Ϊ���ҹ�����������liԪ�ض�����ͬһ�����󸡶�������������Ҫ�������ΧulԪ�صĿ���
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
 	$("#focus ul").css("width",sWidth * (len));
 	
-	//��껬�Ͻ���ͼʱֹͣ�Զ����ţ�����ʱ��ʼ�Զ�����
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
 	$("#focus").hover(function() {
 		clearInterval(picTimer);
 	},function() {
@@ -106,15 +107,15 @@ $(function() {
 			showPics(index);
 			index++;
 			if(index == len) {index = 0;}
-		},4000); //��4000�����Զ����ŵļ������λ������
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
 	}).trigger("mouseleave");
 	
-	//��ʾͼƬ���������ݽ��յ�indexֵ��ʾ��Ӧ������
-	function showPics(index) { //��ͨ�л�
-		var nowLeft = -index*sWidth; //����indexֵ����ulԪ�ص�leftֵ
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //ͨ��animate()����ulԪ�ع������������position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
 	}
 });
 
@@ -140,13 +141,13 @@ $(function() {
 </div>
 <div class="nav">
 <ul>
-<li><a href="../index.htm" target="_self">��վ��ҳ</a></li>
+<li><a href="../index.htm" target="_self">网站首页</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../about.htm" target="_self">��˾��Ϣ</a></li>
+<li><a href="../about.htm" target="_self">公司信息</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../honor.htm" target="_self">��������</a></li>
+<li><a href="../honor.htm" target="_self">荣誉资质</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../products.htm" target="_self">��Ʒչʾ</a></li>
+<li><a href="../products.htm" target="_self">产品展示</a></li>
 <li><span>&nbsp;</span></li>
 </ul>
 </div>
@@ -163,31 +164,31 @@ $(function() {
   <div class="bodyer1">
   <div class="lefter">
 <ul>
-<li><a href="../products/product1.htm"  title="����ֽ�������">����ֽ�������</a></li>
-<li><a href="../products/product2.htm"  title="��װ���Ƚ����ܳ�">��װ���Ƚ����ܳ�</a></li>
-<li><a href="../products/product3.htm"  title="����ѹ��˿���ƽ���">����ѹ��˿���ƽ���</a></li>
-<li><a href="../products/product4.htm"  title="��ѹ��˿��֯����">��ѹ��˿��֯����</a></li>
-<li><a href="../products/product5.htm"  title="ʯ�͸�ѹ��̽����">ʯ�͸�ѹ��̽����</a></li>
-<li><a href="../products/product6.htm"  title="�в�����">��ھ���˿����</a></li>
-<li><a href="../products/product7.htm"  title="��ɰ����">�в�����</a></li>
-<li><a href="../products/product8.htm"  title="��ɰ����">��ɰ����</a></li>
-<li><a href="../products/product9.htm"  title="������ͷ">������ͷ</a></li>
+<li><a href="../products/product1.htm"  title="不锈钢金属软管">不锈钢金属软管</a></li>
+<li><a href="../products/product2.htm"  title="铠装隔热胶管总成">铠装隔热胶管总成</a></li>
+<li><a href="../products/product3.htm"  title="超高压钢丝缠绕胶管">超高压钢丝缠绕胶管</a></li>
+<li><a href="../products/product4.htm"  title="高压钢丝编织胶管">高压钢丝编织胶管</a></li>
+<li><a href="../products/product5.htm"  title="石油高压钻探胶管">石油高压钻探胶管</a></li>
+<li><a href="../products/product6.htm"  title="夹布胶管">大口径钢丝胶管</a></li>
+<li><a href="../products/product7.htm"  title="喷砂胶管">夹布胶管</a></li>
+<li><a href="../products/product8.htm"  title="喷砂胶管">喷砂胶管</a></li>
+<li><a href="../products/product9.htm"  title="橡胶软接头">橡胶软接头</a></li>
 </ul>
 </div>
 <div class="righter">
 <div class="righter110">
 	
 <div class="comrighttitle">
-��ǰλ�ã�<span><a href="../products.htm" >��Ʒ���� </a> > <a  >����ѹ��˿���ƽ���</a> </span>
+当前位置：<span><a href="../products.htm" >产品中心 </a> > <a  >超高压钢丝缠绕胶管</a> </span>
 </div>
  <div id="comrightcon">
 
 	  <table width="98%" border="0" align="center" cellpadding="5" cellspacing="0">
   <tr>
-    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">����ѹ��˿���ƽ���</div></td>
+    <td><div  style="font-size:14px; font-weight:bold; color:#000; text-align:center">超高压钢丝缠绕胶管</div></td>
   </tr>
   <tr>
-    <td><div align="center">���ߣ�admin �������ڣ�2013-10-16 9:21:43�����1879</div></td>
+    <td><div align="center">作者：admin 发布日期：2013-10-16 9:21:43点击：1879</div></td>
   </tr>
   <tr>
     <td>
@@ -195,10 +196,10 @@ $(function() {
 	<div style="font-size:14px; line-height:25px;"><TABLE border=0 cellSpacing=0 cellPadding=0 width="96%" align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 22px; FONT-FAMILY: ''; COLOR: rgb(0,51,153); FONT-SIZE: 14px; TEXT-DECORATION: none" class=unnamed3>����ѹ��˿���ƽ���</TD></TR>
+<TD style="LINE-HEIGHT: 22px; FONT-FAMILY: ''; COLOR: rgb(0,51,153); FONT-SIZE: 14px; TEXT-DECORATION: none" class=unnamed3>超高压钢丝缠绕胶管</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none">
-<P><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>һ����Ʒ�ṹ���ͣ�</SPAN><BR>��Ҫ����Һ����ڽ��㡢�н��㡢2��4��6���˿������ǿ�㡢�⽺����ɣ��ڽ������ʹ���ͽ��ʳ���ѹ����������˿������ʴ�����ã��⽺�㱣����˿�������ˣ���˿����0.3--2.0��ǿ��˿�����ǹǼܲ�������ǿ���á�<BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>������Ʒ��;��</SPAN><BR>��ѹ��˿��ǿҺѹ������Ҫ���ڿ�Һѹ֧�ܡ����￪�ɣ������ڹ��̽������������䡢ұ���ѹ����ɽ�豸��������ע�ܻ�е��ũҵ��е�����ֻ����Լ�����ҵ���Ż�е�����Զ���Һѹϵͳ�����;���һ��ѹ�����ϸ�ѹ�������¶ȵ�ʯ�ͻ���������͡��������͡�Һѹ�͡�ȼ�͡����ͣ���ˮ��Һ�壨���黯Һ����ˮ����Һ��ˮ���Ⱥ�Һ�崫���á� ע������ҵ��˿���ƽ��ܱ�׼����GB/T10544-03��׼��DIN20023��SAE100R9��13��׼������׼���ʺϱ����ͻ���֬��Һ��.<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>������Ʒ�ص㣺<SPAN class=Apple-converted-space>&nbsp;</SPAN></SPAN><BR>1.����ѡ�����ֺϳ�������Ƴɣ��������������͡����ȡ����ϻ����ܡ� 2.���ܳ�ѹ���ߣ�����������Խ�� 3.�����Ͻ��ܣ�ʹ����������ѹ���±���С. 4.���ܾ����������������Ժ���ƣ���ԡ� 5.��˿���ƽ��ܶ���Ϊ20�ף��ɸ���Ҫ���Ƴ���ʮ�����ڡ�<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>�ġ������¶ȣ�</SPAN>-30��+120��<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>�塢ע�����</SPAN><BR>&nbsp;1.�����뾶��ӦС�ڸ��� �������뾶����ֹ�𻵽��ܹǼܻ���������ţ������𻵡� 2.����ʹ����������ȷѡ�ý���Ʒ�֣��������û���á� 3.����ʹ��ʱ��ѹ��Ҫ���⻺�����ڣ�����ͻȻѹ��������𻵹��塣 4.�����ص�䶯ʱ��Ӧ��ذ��ˣ������ϵأ����⻮���⽺�󣬸�ʴ�Ǽܲ㡣 5.���͸�ʴҺ�壬������ڲ�Ӧ����ɾ�����ֹ�����ﳤ�ø�ʴ���壬��ѡ����Ӧϵ�в�Ʒ�� ���ϸ�˿���ƽ��ܲ���GB/T10544-03��׼��δ����������������ѯ�� ��51���ϴ�ھ���˿���ƽ��ܲ��ո�ѹʯ����̽���ܺͺ����ѹ���ͽ��ܼ�����׼��</P></TD></TR></TBODY></TABLE><BR>
+<P><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>一、产品结构类型：</SPAN><BR>主要由耐液体的内胶层、中胶层、2或4或6层钢丝缠绕增强层、外胶层组成，内胶层具有使输送介质承受压力，保护钢丝不受侵蚀的作用，外胶层保护钢丝不受损伤，钢丝（φ0.3--2.0增强钢丝）层是骨架材料起增强作用。<BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>二、产品用途：</SPAN><BR>高压钢丝增强液压胶管主要用于矿井液压支架、油田开采，适宜于工程建筑、起重运输、冶金锻压、矿山设备、船舶、注塑机械、农业机械、各种机床以及各工业部门机械化、自动化液压系统中输送具有一定压力（较高压力）和温度的石油基（如矿物油、可溶性油、液压油、燃油、润滑油）及水基液体（如乳化液、油水乳浊液、水）等和液体传动用。 注：本企业钢丝缠绕胶管标准参照GB/T10544-03标准，DIN20023，SAE100R9～13标准，本标准不适合蓖麻油基和脂基液体.<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>三、产品特点：<SPAN class=Apple-converted-space>&nbsp;</SPAN></SPAN><BR>1.胶管选用特种合成橡胶配合制成，具有优良的耐油、耐热、耐老化性能。 2.胶管承压力高，脉冲性能优越。 3.管体结合紧密，使用柔软，在压力下变形小. 4.胶管具有优良的耐曲绕性和耐疲劳性。 5.钢丝缠绕胶管定尺为20米，可根据要求制成五十米以内。<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>四、适用温度：</SPAN>-30～+120℃<SPAN class=Apple-converted-space>&nbsp;</SPAN><BR><SPAN style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>五、注意事项：</SPAN><BR>&nbsp;1.弯曲半径不应小于给定 的弯曲半径，防止损坏胶管骨架或因过度伸张，提早损坏。 2.根据使用条件，正确选用胶管品种，规格，勿错用或代用。 3.胶管使用时，压力要均衡缓步调节，避免突然压力增大而损坏管体。 4.工作地点变动时，应离地搬运，不可拖地，以免划伤外胶后，腐蚀骨架层。 5.输送腐蚀液体，用完后内部应清除干净，防止残留物长久腐蚀管体，或选用相应系列产品。 以上钢丝缠绕胶管参照GB/T10544-03标准，未尽规格参数请来电咨询！ φ51以上大口径钢丝缠绕胶管参照高压石油钻探胶管和海洋高压输油胶管技术标准。</P></TD></TR></TBODY></TABLE><BR>
 <TABLE style="TEXT-ALIGN: center" border=0 cellSpacing=2 cellPadding=3 width="100%" align=center>
 <TBODY>
 <TR>
@@ -207,7 +208,7 @@ $(function() {
 <TABLE border=0 cellSpacing=0 cellPadding=0 width="96%" align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>������˿���ƽ��ܼ�������ָ�꣺</TD></TR>
+<TD style="LINE-HEIGHT: 22px; COLOR: rgb(255,0,0); FONT-SIZE: 14px; TEXT-DECORATION: none" class=h>六、钢丝缠绕胶管技术性能指标：</TD></TR>
 <TR>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" align=middle>&nbsp;</TD></TR>
 <TR>
@@ -215,22 +216,22 @@ $(function() {
 <TABLE border=0 cellSpacing=1 cellPadding=0 width="90%" bgColor=#000000>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>���<BR>�ھ�������</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�ھ�mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc colSpan=2 align=middle>��˿��ֱ�� mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�⾶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����<BR>mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>��С�����뾶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�ο�����kg/m</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>规格　<BR>内径×层数</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>内径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>公差mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc colSpan=2 align=middle>钢丝层直径 mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>外径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>公差<BR>mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>工作压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>试验压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>爆破压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>最小弯曲半径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>参考重量kg/m</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>�ߴ�</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>����</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>尺寸</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>公差</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>12.5</TD>
@@ -243,7 +244,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>130</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.40</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>14.5</TD>
@@ -256,7 +257,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>145</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.55</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>17.0</TD>
@@ -269,7 +270,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>160</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.75</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>21.6</TD>
@@ -282,7 +283,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>210</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.90</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24.5</TD>
@@ -295,7 +296,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>260</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.00</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>27.0</TD>
@@ -308,7 +309,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>280</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.30</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>31.0</TD>
@@ -321,7 +322,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>320</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.45</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>33.0</TD>
@@ -334,7 +335,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>360</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.54</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>41.0</TD>
@@ -347,7 +348,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>460</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.14</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>50.0</TD>
@@ -360,7 +361,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>560</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.60</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>60.8</TD>
@@ -373,7 +374,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>720</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.42</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>72.0</TD>
@@ -386,7 +387,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>790</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4.10</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>92.0</TD>
@@ -399,7 +400,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>920</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>12</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>123</TD>
@@ -412,7 +413,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1200</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>14</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>134</TD>
@@ -425,7 +426,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1500</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>152��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>152×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>152</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>173</TD>
@@ -438,7 +439,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2280</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>18</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>203��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>203×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>203</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>225</TD>
@@ -451,7 +452,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3050</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>254��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>254×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>254</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>280</TD>
@@ -464,7 +465,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3810</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>30</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>305��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>305×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>305</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>330</TD>
@@ -483,22 +484,22 @@ $(function() {
 <TABLE border=0 cellSpacing=1 cellPadding=0 width="90%" bgColor=#000000>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>���<BR>�ھ�������</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�ھ�mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc colSpan=2 align=middle>��˿��ֱ��</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�⾶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����<BR>mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>��С�����뾶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�ο�����kg/m</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>规格　<BR>内径×层数</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>内径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>公差mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc colSpan=2 align=middle>钢丝层直径</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>外径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>公差<BR>mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>工作压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>试验压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>爆破压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>最小弯曲半径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>参考重量kg/m</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>�ߴ�</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>����</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>尺寸</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>公差</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>14.4</TD>
@@ -511,7 +512,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>130</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.65</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16.4</TD>
@@ -524,7 +525,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>145</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.85</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19.2</TD>
@@ -537,7 +538,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>160</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.03</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13��2SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13×2SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22.2</TD>
@@ -550,7 +551,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>210</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.12</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>26</TD>
@@ -563,7 +564,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>260</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.72</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>30</TD>
@@ -576,7 +577,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>280</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.08</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>33</TD>
@@ -589,7 +590,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>320</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.39</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>36</TD>
@@ -602,7 +603,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>360</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.51</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>44</TD>
@@ -615,7 +616,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>460</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.12</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=, middle>1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>50.8</TD>
@@ -628,7 +629,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>560</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4.31</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>45��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>45×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>45</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>57.8</TD>
@@ -641,7 +642,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>650</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>4.87</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>63</TD>
@@ -654,7 +655,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>720</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5.4</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>63</TD>
@@ -667,7 +668,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>900</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5.7</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>77</TD>
@@ -680,7 +681,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1100</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6.7</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.4</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>101</TD>
@@ -693,7 +694,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1200</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16.5</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.4</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>114</TD>
@@ -706,7 +707,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1300</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>18.4</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127</TD>
@@ -719,7 +720,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1400</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>20.3</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>127</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>156</TD>
@@ -732,7 +733,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1500</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>22</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>152��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>152×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>152</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>184</TD>
@@ -745,7 +746,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2580</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>203��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>203×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>203</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>235</TD>
@@ -758,7 +759,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3350</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>31</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>254��4SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>254×4SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>254</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>291</TD>
@@ -777,22 +778,22 @@ $(function() {
 <TABLE border=0 cellSpacing=1 cellPadding=0 width="90%" bgColor=#000000 align=center>
 <TBODY>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>���<BR>�ھ�������</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�ھ�mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc colSpan=2 align=middle>��˿��ֱ��</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�⾶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����<BR>mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>����ѹ��MPa</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>��С�����뾶mm</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>�ο�����kg/m</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>规格　<BR>内径×层数</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>内径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>公差mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc colSpan=2 align=middle>钢丝层直径</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>外径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>公差<BR>mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>工作压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>试验压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>爆破压力MPa</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>最小弯曲半径mm</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc rowSpan=2 align=middle>参考重量kg/m</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>�ߴ�</TD>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>����</TD></TR>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>尺寸</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#cccccc align=middle>公差</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>6</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16.6</TD>
@@ -805,7 +806,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>180</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.95</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>10</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>21.8</TD>
@@ -818,7 +819,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>210</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.48</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>24.8</TD>
@@ -831,7 +832,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>260</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.75</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>16</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>29.0</TD>
@@ -844,7 +845,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>310</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.02</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>19</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>33.0</TD>
@@ -857,7 +858,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>350</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.49</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>25</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>39.0</TD>
@@ -870,7 +871,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>430</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>2.82</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>32</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>0.8</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>47.0</TD>
@@ -883,7 +884,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>530</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>3.79</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>38</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>54.2</TD>
@@ -896,7 +897,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>660</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>5.76</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>51</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.0</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>66</TD>
@@ -909,7 +910,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1000</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>9.5</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>64</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.2</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>81</TD>
@@ -922,7 +923,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1200</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>13.6</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>76</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.4</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>109</TD>
@@ -935,7 +936,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1300</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>23.7</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>89</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.4</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>122</TD>
@@ -948,7 +949,7 @@ $(function() {
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1400</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>26.6</TD></TR>
 <TR>
-<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102��6SP</TD>
+<TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102×6SP</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>102</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>1.5</TD>
 <TD style="LINE-HEIGHT: 21px; COLOR: rgb(0,0,0); FONT-SIZE: 9pt; TEXT-DECORATION: none" bgColor=#ffffff align=middle>135</TD>
@@ -980,7 +981,7 @@ $(function() {
 }
 </style>
 <div class="bottom">
-��ϵ�ˣ����������ֻ���15241127123���绰��0411-86269515  ��ַ����������˳�����������ֵ����Ҵ�</div>
+联系人：张先生　手机：15241127123　电话：0411-86269515  地址：大连市旅顺口区三涧堡街道韩家村</div>
 </div>
 </div>
 </div>
