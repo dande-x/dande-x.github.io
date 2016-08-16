@@ -2,8 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>��ҵ����_��������ͨҺѹ��ҵ���޹�˾</title>
+<title>行业新闻_大连巨力通液压管业有限公司</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="../css/css.css"  rel="stylesheet" type="text/css" />
@@ -54,12 +55,12 @@
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {
-	var sWidth = $("#focus").width(); //��ȡ����ͼ�Ŀ��ȣ���ʾ�����
-	var len = $("#focus ul li").length; //��ȡ����ͼ����
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
 	var index = 0;
 	var picTimer;
 	
-	//���´����������ְ�ť�Ͱ�ť��İ�͸������������һҳ����һҳ������ť
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
 	var btn = "<div class='btnBg'></div><div class='btn'>";
 	for(var i=0; i < len; i++) {
 		btn += "<span></span>";
@@ -68,37 +69,37 @@ $(function() {
 	$("#focus").append(btn);
 	$("#focus .btnBg").css("opacity",0.5);
 
-	//ΪС��ť������껬���¼�������ʾ��Ӧ������
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
 	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
 		index = $("#focus .btn span").index(this);
 		showPics(index);
 	}).eq(0).trigger("mouseenter");
 
-	//��һҳ����һҳ��ť͸���ȴ���
+	//上一页、下一页按钮透明度处理
 	$("#focus .preNext").css("opacity",0.2).hover(function() {
 		$(this).stop(true,false).animate({"opacity":"0.5"},300);
 	},function() {
 		$(this).stop(true,false).animate({"opacity":"0.2"},300);
 	});
 
-	//��һҳ��ť
+	//上一页按钮
 	$("#focus .pre").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 
-	//��һҳ��ť
+	//下一页按钮
 	$("#focus .next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
 
-	//����Ϊ���ҹ�����������liԪ�ض�����ͬһ�����󸡶�������������Ҫ�������ΧulԪ�صĿ���
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
 	$("#focus ul").css("width",sWidth * (len));
 	
-	//��껬�Ͻ���ͼʱֹͣ�Զ����ţ�����ʱ��ʼ�Զ�����
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
 	$("#focus").hover(function() {
 		clearInterval(picTimer);
 	},function() {
@@ -106,15 +107,15 @@ $(function() {
 			showPics(index);
 			index++;
 			if(index == len) {index = 0;}
-		},4000); //��4000�����Զ����ŵļ������λ������
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
 	}).trigger("mouseleave");
 	
-	//��ʾͼƬ���������ݽ��յ�indexֵ��ʾ��Ӧ������
-	function showPics(index) { //��ͨ�л�
-		var nowLeft = -index*sWidth; //����indexֵ����ulԪ�ص�leftֵ
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //ͨ��animate()����ulԪ�ع������������position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
 	}
 });
 
@@ -140,13 +141,13 @@ $(function() {
 </div>
 <div class="nav">
 <ul>
-<li><a href="../index.htm" target="_self">��վ��ҳ</a></li>
+<li><a href="../index.htm" target="_self">网站首页</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../about.htm" target="_self">��˾��Ϣ</a></li>
+<li><a href="../about.htm" target="_self">公司信息</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../honor.htm" target="_self">��������</a></li>
+<li><a href="../honor.htm" target="_self">荣誉资质</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../products.htm" target="_self">��Ʒչʾ</a></li>
+<li><a href="../products.htm" target="_self">产品展示</a></li>
 <li><span>&nbsp;</span></li>
 </ul>
 </div>
@@ -163,34 +164,34 @@ $(function() {
   <div class="bodyer1">
   <div class="lefter">
 <ul>
-<li><a href="../products/product1.htm"  title="����ֽ�������">����ֽ�������</a></li>
-<li><a href="../products/product2.htm"  title="��װ���Ƚ����ܳ�">��װ���Ƚ����ܳ�</a></li>
-<li><a href="../products/product3.htm"  title="����ѹ��˿���ƽ���">����ѹ��˿���ƽ���</a></li>
-<li><a href="../products/product4.htm"  title="��ѹ��˿��֯����">��ѹ��˿��֯����</a></li>
-<li><a href="../products/product5.htm"  title="ʯ�͸�ѹ��̽����">ʯ�͸�ѹ��̽����</a></li>
-<li><a href="../products/product6.htm"  title="�в�����">��ھ���˿����</a></li>
-<li><a href="../products/product7.htm"  title="��ɰ����">�в�����</a></li>
-<li><a href="../products/product8.htm"  title="��ɰ����">��ɰ����</a></li>
-<li><a href="../products/product9.htm"  title="������ͷ">������ͷ</a></li>
+<li><a href="../products/product1.htm"  title="不锈钢金属软管">不锈钢金属软管</a></li>
+<li><a href="../products/product2.htm"  title="铠装隔热胶管总成">铠装隔热胶管总成</a></li>
+<li><a href="../products/product3.htm"  title="超高压钢丝缠绕胶管">超高压钢丝缠绕胶管</a></li>
+<li><a href="../products/product4.htm"  title="高压钢丝编织胶管">高压钢丝编织胶管</a></li>
+<li><a href="../products/product5.htm"  title="石油高压钻探胶管">石油高压钻探胶管</a></li>
+<li><a href="../products/product6.htm"  title="夹布胶管">大口径钢丝胶管</a></li>
+<li><a href="../products/product7.htm"  title="喷砂胶管">夹布胶管</a></li>
+<li><a href="../products/product8.htm"  title="喷砂胶管">喷砂胶管</a></li>
+<li><a href="../products/product9.htm"  title="橡胶软接头">橡胶软接头</a></li>
 </ul>
 </div>
 <div class="righter">
 <div class="righter110">
 	
 <div class="comrighttitle">
-��ǰλ�ã�<span><a href="../index.htm" >��ҳ</a> > <a href="" >��˾����</a> > �鿴����</span>
+当前位置：<span><a href="../index.htm" >首页</a> > <a href="" >公司新闻</a> > 查看新闻</span>
 </div>
 <div id="comrightcon">
 	  <table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
       
       <tr>
-        <td height="60" valign="bottom"><div align="center" style="color:#990000; font-size:16px; font-weight:bold">��������Ϊ�λ�ʧЧ</div></td>
+        <td height="60" valign="bottom"><div align="center" style="color:#990000; font-size:16px; font-weight:bold">金属软管为何会失效</div></td>
       </tr>
       <tr>
-        <td height="50"><div align="center">���ߣ�admin&nbsp; ��Դ����վ&nbsp; ����ʱ�䣺2016-7-11&nbsp; �����723</div></td>
+        <td height="50"><div align="center">作者：admin&nbsp; 来源：本站&nbsp; 发表时间：2016-7-11&nbsp; 点击：723</div></td>
       </tr>
       <tr>
-        <td height="280" valign="top"><div id="body">&nbsp;&nbsp;&nbsp;&nbsp; 1�����ڰ�װ���ˣ�������˿���Ķ��ѡ��ڰ�װ�Ĺ����У����ڳ������ڽ��в��ƹܡ����͸�˿�������ߺ���Ϊһ��ʱ�ĸ�˿�麸���⡣�ڽ������ܰ�װ֮�����ڸ�˿�����Ĳ������ԣ��ڽ��ʵ�ѹ�������£��ͳ����˶��ѵ����󣬴Ӷ�����˽������ܵ�ʧЧ����<BR>&nbsp;&nbsp;&nbsp;&nbsp; 2����Ϊ���������������˽�������˿�������ѡ�˿���׳е��߱����������ܺг��ؽ���ѹ�������á��������˿���׵ĺ�������̫��Ļ����ͼ������˿���׵����ѣ���ô�������ܾ�û���κε������ˡ���������ڳ���֮ǰ����������ϸ��ˮѹ���������顣</div></td>
+        <td height="280" valign="top"><div id="body">&nbsp;&nbsp;&nbsp;&nbsp; 1，由于安装不宜，而引起丝网的断裂。在安装的过程中，由于出现了在进行波纹管、环和钢丝网套三者焊接为一体时的钢丝虚焊问题。在金属软管安装之后，由于钢丝受力的不均匀性，在介质的压力作用下，就出现了断裂的现象，从而造成了金属软管的失效现象。<BR>&nbsp;&nbsp;&nbsp;&nbsp; 2，因为焊接质量差而造成了金属软管丝网套拉脱。丝网套承担者保护金属软管盒承载介质压力的作用。所以如果丝网套的焊接质量太差的话，就极易造成丝网套的拉脱，那么金属软管就没有任何的作用了。因此软管在出厂之前都必须进行严格的水压及气密试验。</div></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -204,10 +205,10 @@ $(function() {
             <tr>
               <td><div align="left">
                 
-                �������ţ�<a href="iNews2.htm" >�����������׸ִ���֯����������ǿ�ȵ�Ӱ��</a> </div></td>
+                上条新闻：<a href="iNews2.htm" >金属软管网套钢带编织锭数对网套强度的影响</a> </div></td>
                 </tr>
                 <tr>
-              <td><div align="left">�������ţ�<a href="iNews4.htm" >�������ӷ�ʽ���</a></div></td>
+              <td><div align="left">下条新闻：<a href="iNews4.htm" >胶管连接方式详解</a></div></td>
             </tr>
           </table></td>
       </tr>
@@ -230,7 +231,7 @@ $(function() {
 }
 </style>
 <div class="bottom">
-��ϵ�ˣ����������ֻ���15241127123���绰��0411-86269515  ��ַ����������˳�����������ֵ����Ҵ�</div>
+联系人：张先生　手机：15241127123　电话：0411-86269515  地址：大连市旅顺口区三涧堡街道韩家村</div>
 </div>
 </div>
 </div>
