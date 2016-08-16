@@ -2,8 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>��˾����_��������ͨҺѹ��ҵ���޹�˾</title>
+<title>公司新闻_大连巨力通液压管业有限公司</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="../css/css.css" rel="stylesheet" type="text/css" />
@@ -54,12 +55,12 @@
 <script type="text/javascript" src="../js/jquery.min.js" ></script>
 <script type="text/javascript">
 $(function() {
-	var sWidth = $("#focus").width(); //��ȡ����ͼ�Ŀ��ȣ���ʾ�����
-	var len = $("#focus ul li").length; //��ȡ����ͼ����
+	var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#focus ul li").length; //获取焦点图个数
 	var index = 0;
 	var picTimer;
 	
-	//���´����������ְ�ť�Ͱ�ť��İ�͸������������һҳ����һҳ������ť
+	//以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
 	var btn = "<div class='btnBg'></div><div class='btn'>";
 	for(var i=0; i < len; i++) {
 		btn += "<span></span>";
@@ -68,37 +69,37 @@ $(function() {
 	$("#focus").append(btn);
 	$("#focus .btnBg").css("opacity",0.5);
 
-	//ΪС��ť������껬���¼�������ʾ��Ӧ������
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
 	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
 		index = $("#focus .btn span").index(this);
 		showPics(index);
 	}).eq(0).trigger("mouseenter");
 
-	//��һҳ����һҳ��ť͸���ȴ���
+	//上一页、下一页按钮透明度处理
 	$("#focus .preNext").css("opacity",0.2).hover(function() {
 		$(this).stop(true,false).animate({"opacity":"0.5"},300);
 	},function() {
 		$(this).stop(true,false).animate({"opacity":"0.2"},300);
 	});
 
-	//��һҳ��ť
+	//上一页按钮
 	$("#focus .pre").click(function() {
 		index -= 1;
 		if(index == -1) {index = len - 1;}
 		showPics(index);
 	});
 
-	//��һҳ��ť
+	//下一页按钮
 	$("#focus .next").click(function() {
 		index += 1;
 		if(index == len) {index = 0;}
 		showPics(index);
 	});
 
-	//����Ϊ���ҹ�����������liԪ�ض�����ͬһ�����󸡶�������������Ҫ�������ΧulԪ�صĿ���
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
 	$("#focus ul").css("width",sWidth * (len));
 	
-	//��껬�Ͻ���ͼʱֹͣ�Զ����ţ�����ʱ��ʼ�Զ�����
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
 	$("#focus").hover(function() {
 		clearInterval(picTimer);
 	},function() {
@@ -106,15 +107,15 @@ $(function() {
 			showPics(index);
 			index++;
 			if(index == len) {index = 0;}
-		},4000); //��4000�����Զ����ŵļ������λ������
+		},4000); //此4000代表自动播放的间隔，单位：毫秒
 	}).trigger("mouseleave");
 	
-	//��ʾͼƬ���������ݽ��յ�indexֵ��ʾ��Ӧ������
-	function showPics(index) { //��ͨ�л�
-		var nowLeft = -index*sWidth; //����indexֵ����ulԪ�ص�leftֵ
-		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //ͨ��animate()����ulԪ�ع������������position
-		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
-		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //Ϊ��ǰ�İ�ť�л���ѡ�е�Ч��
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
 	}
 });
 
@@ -140,13 +141,13 @@ $(function() {
 </div>
 <div class="nav">
 <ul>
-<li><a href="../index.htm" target="_self">��վ��ҳ</a></li>
+<li><a href="../index.htm" target="_self">网站首页</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../about.htm" target="_self">��˾��Ϣ</a></li>
+<li><a href="../about.htm" target="_self">公司信息</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../honor.htm" target="_self">��������</a></li>
+<li><a href="../honor.htm" target="_self">荣誉资质</a></li>
 <li><span>&nbsp;</span></li>
-<li><a href="../products.htm" target="_self">��Ʒչʾ</a></li>
+<li><a href="../products.htm" target="_self">产品展示</a></li>
 <li><span>&nbsp;</span></li>
 </ul>
 </div>
@@ -163,37 +164,37 @@ $(function() {
   <div class="bodyer1">
   <div class="lefter">
 <ul>
-<li><a href="../products/product1.htm"  title="����ֽ�������">����ֽ�������</a></li>
-<li><a href="../products/product2.htm"  title="��װ���Ƚ����ܳ�">��װ���Ƚ����ܳ�</a></li>
-<li><a href="../products/product3.htm"  title="����ѹ��˿���ƽ���">����ѹ��˿���ƽ���</a></li>
-<li><a href="../products/product4.htm"  title="��ѹ��˿��֯����">��ѹ��˿��֯����</a></li>
-<li><a href="../products/product5.htm"  title="ʯ�͸�ѹ��̽����">ʯ�͸�ѹ��̽����</a></li>
-<li><a href="../products/product6.htm"  title="�в�����">��ھ���˿����</a></li>
-<li><a href="../products/product7.htm"  title="��ɰ����">�в�����</a></li>
-<li><a href="../products/product8.htm"  title="��ɰ����">��ɰ����</a></li>
-<li><a href="../products/product9.htm"  title="������ͷ">������ͷ</a></li>
+<li><a href="../products/product1.htm"  title="不锈钢金属软管">不锈钢金属软管</a></li>
+<li><a href="../products/product2.htm"  title="铠装隔热胶管总成">铠装隔热胶管总成</a></li>
+<li><a href="../products/product3.htm"  title="超高压钢丝缠绕胶管">超高压钢丝缠绕胶管</a></li>
+<li><a href="../products/product4.htm"  title="高压钢丝编织胶管">高压钢丝编织胶管</a></li>
+<li><a href="../products/product5.htm"  title="石油高压钻探胶管">石油高压钻探胶管</a></li>
+<li><a href="../products/product6.htm"  title="夹布胶管">大口径钢丝胶管</a></li>
+<li><a href="../products/product7.htm"  title="喷砂胶管">夹布胶管</a></li>
+<li><a href="../products/product8.htm"  title="喷砂胶管">喷砂胶管</a></li>
+<li><a href="../products/product9.htm"  title="橡胶软接头">橡胶软接头</a></li>
 </ul>
 </div>
 <div class="righter">
 <div class="righter110">
 	
 <div class="comrighttitle">
-��ǰλ�ã�<span><a href="../index.htm" >��ҳ</a> > <a href="">��˾����</a> > �鿴����</span>
+当前位置：<span><a href="../index.htm" >首页</a> > <a href="">公司新闻</a> > 查看新闻</span>
 </div>
 <div id="comrightcon">
 	  <table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
       
       <tr>
-        <td height="60" valign="bottom"><div align="center" style="color:#990000; font-size:16px; font-weight:bold">�����ϻ����а�ȫ����һ��Ҫע�ⶨ�ڸ���</div></td>
+        <td height="60" valign="bottom"><div align="center" style="color:#990000; font-size:16px; font-weight:bold">胶管老化后有安全隐患一定要注意定期更换</div></td>
       </tr>
       <tr>
-        <td height="50"><div align="center">���ߣ�admin&nbsp; ��Դ����վ&nbsp; ����ʱ�䣺2016-7-21&nbsp; �����246</div></td>
+        <td height="50"><div align="center">作者：admin&nbsp; 来源：本站&nbsp; 发表时间：2016-7-21&nbsp; 点击：246</div></td>
       </tr>
       <tr>
-        <td height="280" valign="top"><div id="body"><P>�����ܶ����Ѷ�֪���������û����е�ȼ�������ϻ����а�ȫ������һ��Ҫע�ⶨ�ڸ���������ԡ�������������ֳֻ����Ľ�������Ҳ��Ҫ���ڸ������⣬��֪����<BR>�����ܶ���װ��ʱѡ���������ܿ��ػ���ͷ���ֵĺû���ȴ���������˽������ܲ��֡���ʵ����������Ϊ������һ���֣�Ҫ����Ƶ����Ť��ʹ�ã���˽������������ĺû�Ҳ�ǳ���Ҫ����ô�ڽ������������׳�����Щ�����أ�<BR>&nbsp;<BR>����1.�������ܲ���©ˮ������Ҫ��������Щװ�����ϰ岻�����Σ��������ܲ�Ĵ��߹ܴ����ܷ����ܺõĽ������ܣ�����©ˮ����������Ǻ��̵���ˮ���ͺܿ��ܻ�����Ƥ�������ѡ���ֳֻ���ʱ��һ��Ҫ��ϸ�۲�������ܲ��֡���Ҫ̰�����������ܲ�Ļ�����</P>
-<P>����2.�������ܲ��ơ��ֳֻ����õ�ʱ�䳤�ˣ�������������Ƶ��Ť��ʹ�ã�û�м�ʱ�����������׷����������⣬����ʹ�ò��㡣һ������£���ǰ�Ľ������ܻ���ʹ���������Ҫ���и������������ڵĺܶ໨���������ܺã����������Ƿ����Ƶģ����Һܶ����Ҳ�ṩ���ڻ�������Щ�������Ļ����Ľ�������ʹ�����������˵��Ƚϳ���һ��5,6�궼û�����⡣</P>
-<P>����3.����ͷ��ð��©��</P>
-<P>����4.��ˮ�������кܶ�Ʒ�ƵĻ������ǽ�ˮʽ�ģ���������ѡʱ���Կ��ǡ�</P></div></td>
+        <td height="280" valign="top"><div id="body"><P>　　很多朋友都知道，居民用户家中的燃气胶管老化后有安全隐患，一定要注意定期更换；可是浴室中用于连接手持花洒的金属软管也需要定期更换，这，您知道吗？<BR>　　很多人装修时选购花洒都很看重花洒头部分的好坏，却往往忽略了金属软管部分。其实金属软管作为花洒的一部分，要承受频繁的扭动使用，因此金属软管质量的好坏也非常重要。那么在金属软管上容易出现哪些问题呢？<BR>&nbsp;<BR>　　1.金属软管部分漏水。这主要是由于有些装潢店的老板不负责任，用质量很差的穿线管代替密封性能好的金属软管，导致漏水。如果出的是很烫得热水，就很可能会烫伤皮肤。因此选购手持花洒时，一定要仔细观察金属软管部分。不要贪便宜买质量很差的花洒。</P>
+<P>　　2.金属软管缠绕。手持花洒用的时间长了，金属软管由于频繁扭动使用，没有及时更换，很容易发生缠绕问题，导致使用不便。一般情况下，以前的金属软管花洒使用两年就需要进行更换。不过现在的很多花洒质量都很好，金属软管是防缠绕的，而且很多店铺也提供进口花洒，这些高质量的花洒的金属软管使用寿命相对来说会比较长，一般5,6年都没有问题。</P>
+<P>　　3.花洒头跑冒滴漏。</P>
+<P>　　4.费水。现在有很多品牌的花洒都是节水式的，朋友们挑选时可以考虑。</P></div></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -207,10 +208,10 @@ $(function() {
             <tr>
               <td><div align="left">
                 
-                �������ţ��� </div></td>
+                上条新闻：无 </div></td>
                 </tr>
                 <tr>
-              <td><div align="left">�������ţ�<a href="cNews2.htm" >�ڽ������ܵĽṹ����в�ȡ��Ӧ�ļ�ǿ�ͱ�����ʩ</a></div></td>
+              <td><div align="left">下条新闻：<a href="cNews2.htm" >在金属软管的结构设计中采取相应的加强和保护措施</a></div></td>
             </tr>
           </table></td>
       </tr>
@@ -233,7 +234,7 @@ $(function() {
 }
 </style>
 <div class="bottom">
-��ϵ�ˣ����������ֻ���15241127123���绰��0411-86269515  ��ַ����������˳�����������ֵ����Ҵ�</div>
+联系人：张先生　手机：15241127123　电话：0411-86269515  地址：大连市旅顺口区三涧堡街道韩家村</div>
 </div>
 </div>
 </div>
