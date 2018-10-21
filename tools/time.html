@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>时间戳工具</title>
+		<style type="text/css">
+			.container{
+				height: auto;
+				text-align: center;
+				
+			}
+			.container div{
+				height: auto;
+				margin: 30px;
+				
+			}
+			input{
+				width: 150px;
+			}
+			
+			.date_input input{
+				width: 40px;
+			}
+			.date_input > .timestamp_input{
+				width: 150px;
+			}
+			button{
+				margin: 10px;
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<div class="container">
+			<div>
+				<label for="id_now_time">现在的时间戳：</label>
+				<input type="number" id="id_now_time" readonly />
+				<button onclick="refreshNowTime()">刷新</button>
+			</div>
+
+			<div>
+				<div>
+					<label for="">时间戳：</label>
+					<input type="text" id="id_timestamp" />
+					<button onclick="changeTimeToStr()">准换成北京时间</button>
+					<input type="text" id="id_time_display" readonly />
+				</div>
+				<div>
+					<label for="">北京时间：</label>
+					<input type="text" id="id_datestr" />
+					<button onclick="changeStrToTime()">准换成时间戳</button>
+					<input type="text" id="id_str_time_display" readonly />
+				</div>
+				<div class="date_input">
+					<input type="text" id="id_year_input" class="" size="2" tabindex="3" name="year" maxlength="4" /><label>年</label>
+					<input type="text" id="id_month_input" class="" size="1" tabindex="4" name="month" maxlength="2" /><label>月</label>
+					<input type="text" id="id_day_input" class="" size="1" tabindex="5" name="day" maxlength="2" /><label>日</label>
+					<input type="text" id="id_hour_input" class="" size="1" tabindex="6" name="hour" maxlength="2" /><label>时</label>
+					<input type="text" id="id_minute_input" class="" size="1" tabindex="7" name="minute" maxlength="2" /><label>分</label>
+					<input type="text" id="id_second_input" class="" size="1" tabindex="8" name="second" maxlength="2" /><label>秒</label>
+					
+					<button onclick="dateToTime()">准换成时间戳</button>
+					<input class="timestamp_input" type="text" id="id_time_display2" class="" size="25" readonly />
+
+				</div>
+			</div>
+		</div>
+
+
+		<script>
+			function refreshNowTime() {
+				var intTimeStamp = Math.round(new Date().getTime() / 1000);
+				var objTimeInput = document.getElementById('id_now_time');
+				objTimeInput.value = intTimeStamp;
+			}
+
+			function changeTimeToStr() {
+				var intTimeStamp = document.getElementById('id_timestamp').value;
+				var strTime = timeToStr(intTimeStamp);
+				var objTimeInput = document.getElementById('id_time_display');
+				objTimeInput.value = strTime;
+
+			}
+
+			function add0(m) {
+				return m < 10 ? '0' + m : m;
+			}
+
+			function timeToStr(intTimeStamp) {
+				intTimeStamp = parseInt(intTimeStamp) * 1000;
+				var date = new Date(intTimeStamp);
+
+				var y = date.getFullYear();
+				var m = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+				var d = date.getDate();
+				var h = date.getHours();
+				var mm = date.getMinutes();
+				var s = date.getSeconds();
+
+				return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
+			}
+
+			function strToTime(strTime) {
+				var date = new Date(strTime);
+				time = date.getTime();
+				return time;
+			}
+
+			function changeStrToTime() {
+				var strTime = document.getElementById('id_datestr').value;
+				var intTime = Math.round(strToTime(strTime) / 1000);
+				var objTimeInput = document.getElementById('id_str_time_display');
+				objTimeInput.value = intTime;
+			}
+			
+			function dateToTime() {
+				var y = document.getElementById('id_year_input').value;
+				var m = document.getElementById('id_month_input').value;
+				var d = document.getElementById('id_day_input').value;
+				var h = document.getElementById('id_hour_input').value;
+				var mm = document.getElementById('id_minute_input').value;
+				var s = document.getElementById('id_second_input').value;
+				var strTime = y + '-' + m + '-' + d + ' ' + h + ':' + mm + ':' + s;
+				var intTime = Math.round(strToTime(strTime)/1000);
+				document.getElementById('id_time_display2').value = intTime;
+			}
+
+			refreshNowTime();
+			var date = new Date();
+			var intNowTime = new Date().getTime();
+
+			var intTimeStamp = Math.round(intNowTime / 1000);
+			var objTimeInput = document.getElementById('id_timestamp');
+			objTimeInput.value = intTimeStamp;
+			
+			var y = date.getFullYear();
+			var m = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
+			var d = date.getDate();
+			document.getElementById('id_year_input').value = y;
+			document.getElementById('id_month_input').value = m;
+			document.getElementById('id_day_input').value = d;
+		
+		</script>
+	</body>
+</html>
